@@ -6,6 +6,13 @@
 
 
 @if (Auth::check())
+
+    @if(empty(Auth::user()->avatar) )
+        <img src="{{ Avatar::create( isset(Auth::user()->display_name) ? Auth::user()->display_name : Auth::user()->email )->toBase64() }}" class="rounded" width="40" height="40"/>
+    @else
+        <img src="{{ Auth::user()->avatar }}" width="40" height="40" class="rounded"/>
+    @endif
+
     <ul class="navbar-nav">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

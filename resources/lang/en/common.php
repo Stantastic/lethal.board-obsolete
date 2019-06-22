@@ -8,6 +8,7 @@ return [
     'email_address' => 'E-Mail Address',
     'team' => 'Team',
     'members' => 'Members',
-    'issues' => 'Issues'
+    'issues' => 'Issues',
+    'admin_control_panel' => 'ACP',
 
     ];
