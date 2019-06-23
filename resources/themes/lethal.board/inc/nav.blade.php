@@ -4,7 +4,8 @@
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark-20" style="margin-bottom: 20px;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark-20 fixed-top" style="margin-bottom: 20px; border-bottom: 1px inset #00f078; box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.75);
+">
     <a class="navbar-brand" href="/"><img src={{theme_url('img/logo-slogan.png')}} height="42" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,6 +37,7 @@
             </li>
         </ul>
 
+        @if (Auth::check())
         <ul class="navbar-nav ">
             <li class="nav-item">
                 <a class="nav-link" href="">
@@ -44,13 +46,14 @@
             </li>
         </ul>
 
-        <ul class="navbar-nav ">
+        <ul class="navbar-nav mr-5">
             <li class="nav-item">
                 <a class="nav-link" href="">
                     <i class="fas fa-envelope fa-fw" aria-hidden="true"></i> Messages <span class="badge badge-success">0</span>
                 </a>
             </li>
         </ul>
+        @endif
 
         @include('inc.nav-login')
     </div>

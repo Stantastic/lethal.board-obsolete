@@ -10,5 +10,10 @@ return [
     'members' => 'Members',
     'issues' => 'Issues',
     'admin_control_panel' => 'ACP',
+    'topics' => 'Topics',
+    'posts' => 'Posts',
+    'last_post' => 'Last Post',
+
+
 
     ];

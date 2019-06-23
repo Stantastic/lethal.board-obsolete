@@ -8,7 +8,7 @@
 @if (Auth::check())
 
     @if(empty(Auth::user()->avatar) )
-        <img src="{{ Avatar::create( isset(Auth::user()->display_name) ? Auth::user()->display_name : Auth::user()->email )->toBase64() }}" class="rounded" width="40" height="40"/>
+        <img src="{{ Avatar::create( isset(Auth::user()->display_name) ? Auth::user()->display_name : Auth::user()->email )->toBase64() }}" width="40" height="40"/>
     @else
         <img src="{{ Auth::user()->avatar }}" width="40" height="40" class="rounded"/>
     @endif

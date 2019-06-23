@@ -4,7 +4,7 @@
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 
-<footer class="footer mt-auto py-3 bg-dark-20">
+<footer class="footer mt-auto py-3 bg-dark-20" style="    box-shadow: 0px -5px 5px 1px rgba(0,0,0,0.75); border-top: 1px inset #00f078;">
     <div class="container">
         <span class="float-left">
             <a href="/" class="muted-a"><i class="fas fa-home"></i> @lang('common.index')</a>

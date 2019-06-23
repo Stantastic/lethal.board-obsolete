@@ -10,8 +10,5 @@ return [
     | The following language lines are used for displaying page titles
     |
     */
-    'index' => 'Index',
-    'team' => 'team',
-    'register' => 'Register',
 
 ];

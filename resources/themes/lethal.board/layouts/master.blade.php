@@ -26,10 +26,13 @@
     </head>
     <body>
         @include('inc.nav')
-    <div class="container">
+    <div class="container container-fluid" style="margin-top: 75px;" >
         @yield('breadcrumb')
         @include('inc.announcements')
         @yield('content')
+        @include('inc.online')
+        @include('inc.statistics')
+        <div style="height: 70px;"></div>
     </div>
         @include('inc.footer')
         @include('inc.body-scripts')

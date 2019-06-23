@@ -16,5 +16,6 @@ Route::get('/', 'PagesController@index');
 Route::get('/team', 'PagesController@team');
 Route::get('/members', 'PagesController@members');
 
+Route::resource('/acp/categories', 'CategoriesController');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
