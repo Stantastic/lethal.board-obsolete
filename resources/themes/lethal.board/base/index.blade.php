@@ -57,28 +57,48 @@
                                         <td class="topics d-none d-md-table-cell"><span class="badge badge-success">{{ $total_topics = DB::table("topics")->where("forum", "=", $forum->id)->count()}}</span></td>
                                         <td class="posts d-none d-md-table-cell"><span class="badge badge-success">{{ $postsCount = DB::table('topics')->join('posts', 'posts.topic', '=', 'topics.id')->where('forum', $forum->id)->count()}}</span></td>
                                         <td class="lastpost d-none d-md-table-cell">
-                                            <dfn>@lang('common.last_post'):</dfn>
-                                            <a href="" class="lastsubject">{{
-                                            $latestPost = DB::table('topics')
-                                            ->join('posts', 'posts.topic', '=', 'topics.id')
-                                            ->join('forums', 'topics.forum', '=', 'forums.id')
-                                            ->where('forum', $forum->id)
-                                            ->orderBy('posts.created_at', 'desc')
-                                            ->value('title')
-                                         }}</a> <br>
-                                            <small>by <a href="" class="username">{{
-                                            $latestPostAuthor = DB::table('topics')
-                                            ->join('posts', 'posts.topic', '=', 'topics.id')
-                                            ->join('users', 'users.id', '=', 'posts.author')
-                                            ->join('forums', 'topics.forum', '=', 'forums.id')
-                                            ->where('forum', $forum->id)
-                                            ->orderBy('posts.created_at', 'desc')
-                                            ->value('display_name')
-                                         }}</a>
+
+                                            @if(($postsCount = DB::table('topics')->join('posts', 'posts.topic', '=', 'topics.id')->where('forum', $forum->id)->count())>0)
+
+                                                <a href="" class="lastsubject">{{
+                                                $latestPost = DB::table('topics')
+                                                ->join('posts', 'posts.topic', '=', 'topics.id')
+                                                ->join('forums', 'topics.forum', '=', 'forums.id')
+                                                ->where('forum', $forum->id)
+                                                ->orderBy('posts.created_at', 'desc')
+                                                ->value('title')
+                                             }}</a> <br>
+                                                <small>by <a href="" class="username">{{
+                                                $latestPostAuthor = DB::table('topics')
+                                                ->join('posts', 'posts.topic', '=', 'topics.id')
+                                                ->join('users', 'users.id', '=', 'posts.author')
+                                                ->join('forums', 'topics.forum', '=', 'forums.id')
+                                                ->where('forum', $forum->id)
+                                                ->orderBy('posts.created_at', 'desc')
+                                                ->value('display_name')
+                                             }}</a>
                                                 <a href="" title="View the latest post">
                                                     <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i><span class="sr-only">View the latest post</span>
                                                 </a>
-                                                <br>Mon Jun 03, 2019 9:29 pm						</small>
+                                                <br>
+
+                                                @php
+                                                $latestPost = DB::table('topics')
+                                                ->join('posts', 'posts.topic', '=', 'topics.id')
+                                                ->join('forums', 'topics.forum', '=', 'forums.id')
+                                                ->where('forum', $forum->id)
+                                                ->orderBy('posts.created_at', 'desc')
+                                                ->value('posts.created_at');
+
+                                                $date = new DateTime($latestPost);
+                                                echo $date->format('D, Y-m-d H:i:s');
+                                             @endphp
+
+
+                                            </small>
+                                            @else
+                                                <p style="height: 57px;"></p>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endif
@@ -106,4 +126,9 @@
     @endif
 
 
+@endsection
+
+@section('widgets')
+    @include('inc.online')
+    @include('inc.statistics')
 @endsection

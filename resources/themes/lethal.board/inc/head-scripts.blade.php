@@ -4,6 +4,8 @@
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 
+{!! Theme::js('vendor/jquery/jquery.min.js?t={cache-version}') !!}
+@yield('additional_scripts')
 {!! Theme::css('vendor/bootstrap/bootstrap.min.css?t={cache-version}') !!}
 {!! Theme::css('vendor/sweetalert2/sweetalert2.min.css?t={cache-version}') !!}
 {!! Theme::css('vendor/animate/animate.min.css?t={cache-version}') !!}

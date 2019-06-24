@@ -239,3 +239,25 @@ scrollbar-width: none;  // Firefox
 .container::-webkit-scrollbar {
     display: none;  // Safari and Chrome
 }
+
+.breadcrumb-item.active{
+    color: rgba(255,255,255,0.5);
+}
+
+.card-header{
+    color: rgba(255,255,255,0.5);
+}
+
+/* Sortable Nodes*/
+.sortable_nodes{
+    list-style: none;
+}
+.category_node{
+    background-color: #00f078;
+}
+.forum_node{
+    background-color: #141414;
+}
+.ui-state-highlight{
+    background-color: #0f93a9;
+}

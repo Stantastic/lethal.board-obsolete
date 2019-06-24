@@ -38,7 +38,7 @@
         </ul>
 
         @if (Auth::check())
-        <ul class="navbar-nav ">
+        <ul class="navbar-nav d-none d-md-block">
             <li class="nav-item">
                 <a class="nav-link" href="">
                     <i class="fas fa-bell fa-fw" aria-hidden="true"></i> Notifications <span class="badge badge-success">0</span>
@@ -46,10 +46,10 @@
             </li>
         </ul>
 
-        <ul class="navbar-nav mr-5">
+        <ul class="navbar-nav mr-5 d-none d-md-block">
             <li class="nav-item">
                 <a class="nav-link" href="">
-                    <i class="fas fa-envelope fa-fw" aria-hidden="true"></i> Messages <span class="badge badge-success">0</span>
+                    <i class="fas fa-envelope fa-fw " aria-hidden="true"></i> Messages <span class="badge badge-success">0</span>
                 </a>
             </li>
         </ul>
