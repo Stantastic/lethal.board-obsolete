@@ -6,7 +6,7 @@
 
 <div class="card box-outline box-shadow box-dark" style="margin-top: 0.75em; margin-bottom: 0.75em;">
     <div class="card-header"><i class="fas fa-globe"></i> <span class="text-success">Online Users</span></div>
-    <div class="card-body">
+    <div class="card-body inverse-text">
 
             @php
                 $activeUsers = App\Http\Controllers\SessionsController::activeUsers();
@@ -18,7 +18,10 @@
                         array_push($usersArray, $userLink);
                     }
                 }
-                    echo implode(', ', $usersArray);
+                echo implode(', ', $usersArray);
+
+                if(empty($usersArray)){ echo 'There is no one online right now.';}
+
             @endphp
 
 

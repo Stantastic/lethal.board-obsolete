@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Forum;
 use Illuminate\Http\Request;
 
 class ForumsController extends Controller
@@ -13,7 +14,7 @@ class ForumsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.forums.create');
     }
 
     /**
@@ -23,7 +24,7 @@ class ForumsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.forums.create');
     }
 
     /**
@@ -34,7 +35,18 @@ class ForumsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required'
+        ]);
+
+        $forum = new Forum;
+        $forum->name = $request->input('title');
+
+        $forum->description = 'auto-gen';
+        $forum->category = '1';
+        $forum->save();
+
+        return redirect('/acp/forums')->with('success', 'Forum created!');
     }
 
     /**

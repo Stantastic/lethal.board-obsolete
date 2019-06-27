@@ -12,7 +12,7 @@ class Category extends Model
     //Primary Key
     public $primaryKey = 'id';
 
-
+    public $timestamps = false;
 
 
 }

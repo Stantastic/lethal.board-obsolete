@@ -12,9 +12,9 @@
             <a href="/members" class="muted-a"><i class="fas fa-users ml-3"></i> @lang('common.members')</a>
             <a href="https://github.com/Stantastic/lethal.board" class="muted-a"><i class="fab fa-github ml-3"></i> @lang('common.issues')</a>
 
-            @if (Auth::check())
-                <a href="/admin" class="muted-a"><i class="fas fa-cogs ml-3"></i> @lang('common.admin_control_panel')</a>
-            @endif
+            @can('acp-access')
+                <a href="/acp" class="muted-a"><i class="fas fa-cogs ml-3"></i> @lang('common.admin_control_panel')</a>
+            @endcan
 
         </span>
         <span class="float-right green">Made with <i class="fas fa-heart pulsate text-danger"></i> and <i class="fas fa-code text-success"></i></span>

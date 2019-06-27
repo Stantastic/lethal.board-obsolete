@@ -13,6 +13,7 @@ return [
     'topics' => 'Topics',
     'posts' => 'Posts',
     'last_post' => 'Last Post',
+    'nodes' => 'Nodes',
 
 
 

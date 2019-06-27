@@ -20,6 +20,7 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#9f9f9f">
         <meta name="theme-color" content="#00f078">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         @include('inc.head-scripts')
     </head>
@@ -28,6 +29,9 @@
     <div class="container container-fluid" style="margin-top: 75px;" >
         @yield('breadcrumb')
         @include('inc.announcements')
+
+        @include('inc.alerts')
+
         @yield('content')
         @yield('widgets')
 

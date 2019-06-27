@@ -67,6 +67,8 @@ class RegisterController extends Controller
             'display_name' => $data['display_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+        ])->assignRole('default');
+
+
     }
 }
