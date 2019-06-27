@@ -29,7 +29,8 @@ This project would not be possible without the work of all the other open-source
 - [SweetAlert2](https://github.com/sweetalert2/sweetalert2)
 - [TWEmoji](https://twemoji.twitter.com)
 
-######Please note, this is my first Laravel project and I'm going working with a limited amount of time. Things might not be optimized, logic or perfect... sorry.
+Please note, this is my first Laravel project and I'm going working with a limited amount of time. 
+Things might not be optimized, logic or perfect... sorry.
 
 ## License
 ```
