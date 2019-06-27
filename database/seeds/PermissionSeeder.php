@@ -13,7 +13,16 @@ class PermissionSeeder extends Seeder
 
         // Create permissions
         Permission::create(['name' => 'acp-access']);
-        Permission::create(['name' => 'acp-edit-node']);
+
+        Permission::create(['name' => 'acp-edit-settings']);
+        Permission::create(['name' => 'acp-edit-nodes']);
+        Permission::create(['name' => 'acp-edit-users']);
+        Permission::create(['name' => 'acp-edit-roles']);
+        Permission::create(['name' => 'acp-edit-gameservers']);
+        Permission::create(['name' => 'acp-edit-widgets']);
+        Permission::create(['name' => 'acp-edit-pages']);
+        Permission::create(['name' => 'acp-edit-communication']);
+
 
 
         // Create the default root and user role
