@@ -112,7 +112,7 @@
 
                 <div class="card box-outline box-shadow " style="margin-top: 0.75em; margin-bottom: 0.75em;">
                     <div class="category-link">
-                        <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i> <a href="{{$category->url}}">{{$category->name}}</a><small class="category-description">{{$category->description}}</small>
+                        <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i> <a href="{{$category->url}}" target="_blank>{{$category->name}}</a><small class="category-description">{{$category->description}}</small>
                     </div>
                 </div>
             @endif
@@ -129,6 +129,6 @@
 @endsection
 
 @section('widgets')
-    @include('inc.online')
-    @include('inc.statistics')
+    @include('widgets.online')
+    @include('widgets.statistics')
 @endsection

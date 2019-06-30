@@ -5,13 +5,8 @@
 {{-- https://opensource.org/licenses/MIT --}}
 
 @extends('layouts.master')
-@section('title', 'Index')
-@section('breadcrumb', Breadcrumbs::render('index'))
+
 @section('content')
-    <div class="container">
-
-        <h1 class="text-danger">404.</h1>
-
-    </div>
-
-    @endsection
+    @include('inc.acp-nav')
+    @yield('acp-content')
+@endsection

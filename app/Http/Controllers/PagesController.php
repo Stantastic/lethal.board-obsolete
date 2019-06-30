@@ -27,6 +27,6 @@ class PagesController extends Controller
     }
 
     public function acp(){
-        return view('admin.acp');
+        return view('admin.index');
     }
 }

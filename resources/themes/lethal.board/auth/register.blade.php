@@ -6,10 +6,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="card box-outline box-shadow">
+                <div class="card-header"><i class="fas fa-user-plus"></i> {{ __('Register') }}</div>
 
-                <div class="card-body">
+                <div class="card-body inverse-text">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

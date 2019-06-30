@@ -6,7 +6,7 @@
 
 @extends('layouts.acp-master')
 @section('title', 'ACP')
-@section('breadcrumb', Breadcrumbs::render('forum.create'))
+@section('breadcrumb', Breadcrumbs::render('forum.edit'))
 @section('acp-content')
 
 
@@ -17,19 +17,19 @@
             <small class="forum-desc">@lang('common.forum_add_subtext')</small>
         </div>
         <div class="card-body inverse-text">
-            {{ Form::open(['action' => 'ForumsController@store', 'method' => 'POST'])}}
+            {{ Form::open(['action' => ['ForumsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) }}
             <div class="form-group row align-text-right mb-0">
                 <div class="col-8 offset-1">
                     <div class="row">
                         <label class="col-4 col-form-label" for="title">@lang('common.forum_title')</label>
                         <div class="col-8">
-                            {{Form::text('title','', ['class'=>'form-control'])}}
+                            {{Form::text('title',$post->name, ['class'=>'form-control'])}}
                         </div>
                     </div>
                     <div class="form-group row align-text-right mt-2">
                         <label for="description" class="col-4 col-form-label">@lang('common.description')</label>
                         <div class="col-8">
-                            {{Form::text('description','', ['class'=>'form-control'])}}
+                            {{Form::text('description',$post->description, ['class'=>'form-control'])}}
                         </div>
                     </div>
 
@@ -40,7 +40,11 @@
                             <select class="custom-select selectpicker" name="category">
                                 @foreach($categories as $category)
                                     @if($category->type ==='category')
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @if($category->id == $post->category)
+                                            <option selected="selected" value="{{$category->id}}">{{$category->name}}</option>
+                                        @else
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endif
                                     @endif
                                 @endforeach
                             </select>
@@ -56,6 +60,7 @@
             {{ Form::close() }}
         </div>
     </div>
+
 
 
 @endsection

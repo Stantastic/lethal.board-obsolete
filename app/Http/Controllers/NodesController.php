@@ -7,24 +7,25 @@ use Illuminate\Support\Facades\DB;
 use App\Sessions;
 use App\Category;
 use App\Forum;
+use Illuminate\Support\Facades\Session;
 
-class NodeController extends Controller
+class NodesController extends Controller
 {
 
     public function index()
     {
         $categories = Category::all()->sortBy('order');
         $forums = Forum::all()->sortBy('order');
-        return view('admin.nodes.edit')->with('categories', $categories)->with('forums', $forums);
+        return view('admin.nodes.index')->with('categories', $categories)->with('forums', $forums);
     }
 
 
     /**
-     * Save the defined order of nodes to the database.
+     * Store the defined order of nodes to the database.
      *
      * @param  \Illuminate\Http\Request $request
      */
-    public function save(Request $request)
+    public function store(Request $request)
     {
         $input = $request->all();
 

@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Category;
-use Illuminate\Support\Facades\DB;
-use App\Forum;
 
-class CategoriesController extends Controller
+class LinksController extends Controller
 {
 
     /**
@@ -18,7 +16,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.links.create');
     }
 
     /**
@@ -30,18 +28,20 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required'
+            'title' => 'required',
+            'url' => 'required'
         ]);
 
         $category = new Category();
         $category->name = $request->input('title');
 
         $category->description = $request->input('description');
-        $category->type = 'category';
+        $category->url = $request->input('url');
+        $category->type = 'link';
         $category->save();
 
 
-        return redirect('/acp/nodes')->with('success', trans('common.category_created'));
+        return redirect('/acp/nodes')->with('success', trans('common.link_created'));
     }
 
     /**
@@ -55,10 +55,10 @@ class CategoriesController extends Controller
         $category = Category::find($id);
 
         if (!isset($category)){
-            return redirect('/acp/nodes')->with('error', trans('common.category_not_found'));
+            return redirect('/acp/nodes')->with('error', trans('common.link_not_found'));
         }
 
-        return view('admin.categories.edit')->with('post', $category);
+        return view('admin.links.edit')->with('post', $category);
     }
 
     /**
@@ -78,10 +78,12 @@ class CategoriesController extends Controller
         $category->name = $request->input('title');
 
         $category->description = $request->input('description');
-        $category->type = 'category';
+        $category->url = $request->input('url');
+        $category->type = 'link';
         $category->save();
 
-        return redirect('/acp/nodes')->with('success', trans('common.category_updated'));
+        return redirect('/acp/nodes')->with('success', trans('common.link_updated'));
+
     }
 
     /**
@@ -94,15 +96,15 @@ class CategoriesController extends Controller
     {
         $category = Category::find($id);
         if (!isset($category)){
-            return redirect('/acp/nodes')->with('error', trans('common.category_not_found'));
+            return redirect('/acp/nodes')->with('error', trans('common.link_not_found'));
         }
         if (isset($category)){
-            if((DB::table('categories')->join('forums', 'categories.id', '=', 'forums.category')->where('categories.id', $category->id)->count())>0){
-                return redirect('/acp/nodes')->with('error-confirm', trans('common.category_has_forums'));
-            }else{
+
                 $category->delete();
-                return redirect('/acp/nodes')->with('success', trans('common.category_deleted'));
-            }
+                return redirect('/acp/nodes')->with('success', trans('common.link_deleted'));
+
         }
     }
+
+
 }

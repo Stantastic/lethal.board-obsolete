@@ -10,6 +10,8 @@
 {!! Theme::css('vendor/sweetalert2/sweetalert2.min.css?t={cache-version}') !!}
 {!! Theme::css('vendor/animate/animate.min.css?t={cache-version}') !!}
 {!! Theme::css('vendor/fontawesome/all.min.css?t={cache-version}') !!}
+{!! Theme::css('vendor/select2/select2.min.css?t={cache-version}') !!}
+{!! Theme::css('vendor/select2/select2-bootstrap4.min.css?t={cache-version}') !!}
 {!! Theme::css('vendor/bootstrap/bootstrap-theme.css?t={cache-version}') !!}
 {!! Theme::css('vendor/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css?t={cache-version}') !!}
 {!! Theme::css('css/lethal_network.css?t={cache-version}') !!}

@@ -29,8 +29,56 @@ Breadcrumbs::for('/acp', function ($trail) {
 });
 
 // Index > ACP > NODES
-Breadcrumbs::for('/acp/nodes', function ($trail) {
+Breadcrumbs::for('nodes.index', function ($trail) {
     $trail->parent('index');
     $trail->push(trans('common.admin_control_panel'), action('PagesController@acp'));
-    $trail->push(trans('common.nodes'), action('NodeController@index'));
+    $trail->push(trans('common.nodes'), action('NodesController@index'));
+});
+
+// Index > ACP > NODES > CREATE CATEGORY
+Breadcrumbs::for('category.create', function ($trail) {
+    $trail->parent('index');
+    $trail->push(trans('common.admin_control_panel'), action('PagesController@acp'));
+    $trail->push(trans('common.nodes'), action('NodesController@index'));
+    $trail->push(trans('common.category_add'), action('CategoriesController@create'));
+});
+
+// Index > ACP > NODES > EDIT CATEGORY
+Breadcrumbs::for('category.edit', function ($trail) {
+    $trail->parent('index');
+    $trail->push(trans('common.admin_control_panel'), action('PagesController@acp'));
+    $trail->push(trans('common.nodes'), action('NodesController@index'));
+    $trail->push(trans('common.category_edit'));
+});
+
+// Index > ACP > NODES > CREATE LINK
+Breadcrumbs::for('link.create', function ($trail) {
+    $trail->parent('index');
+    $trail->push(trans('common.admin_control_panel'), action('PagesController@acp'));
+    $trail->push(trans('common.nodes'), action('NodesController@index'));
+    $trail->push(trans('common.link_add'), action('LinksController@create'));
+});
+
+// Index > ACP > NODES > EDIT LINK
+Breadcrumbs::for('link.edit', function ($trail) {
+    $trail->parent('index');
+    $trail->push(trans('common.admin_control_panel'), action('PagesController@acp'));
+    $trail->push(trans('common.nodes'), action('NodesController@index'));
+    $trail->push(trans('common.link_edit'));
+});
+
+// Index > ACP > NODES > CREATE FORUM
+Breadcrumbs::for('forum.create', function ($trail) {
+    $trail->parent('index');
+    $trail->push(trans('common.admin_control_panel'), action('PagesController@acp'));
+    $trail->push(trans('common.nodes'), action('NodesController@index'));
+    $trail->push(trans('common.forum_add'), action('LinksController@create'));
+});
+
+// Index > ACP > NODES > EDIT FORUM
+Breadcrumbs::for('forum.edit', function ($trail) {
+    $trail->parent('index');
+    $trail->push(trans('common.admin_control_panel'), action('PagesController@acp'));
+    $trail->push(trans('common.nodes'), action('NodesController@index'));
+    $trail->push(trans('common.forum_edit'));
 });

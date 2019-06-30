@@ -10,17 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Auth::routes();
 Route::get('/', 'PagesController@index');
+
+
 Route::get('/team', 'PagesController@team');
 Route::get('/members', 'PagesController@members');
 
-Route::resource('/acp/forums', 'ForumsController');
+// Admin Control Panel Routes
+Route::get('/acp', 'PagesController@acp')->middleware('permission:acp-access');
+
+// - Nodes
+Route::resource('acp/nodes','NodesController', ['only' => ['index', 'store']])->middleware('permission:acp-edit-nodes');
+Route::post('/acp/nodes/store', 'NodesController@store')->middleware('permission:acp-edit-nodes');
+
+// - Categories, Forums & Links
+Route::resource('/acp/nodes/category', 'CategoriesController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']])->middleware('permission:acp-edit-nodes');
+Route::resource('/acp/nodes/link', 'LinksController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']])->middleware('permission:acp-edit-nodes');
+Route::resource('/acp/nodes/forum', 'ForumsController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']])->middleware('permission:acp-edit-nodes');
 
 
-Route::get('/acp', 'PagesController@acp');
-Route::get('/acp/nodes', 'NodeController@index');
-Route::post('/acp/nodes/save', 'NodeController@save');
-
+Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

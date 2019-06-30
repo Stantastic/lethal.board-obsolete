@@ -30,13 +30,14 @@
         @yield('breadcrumb')
         @include('inc.announcements')
 
-        @include('inc.alerts')
 
+        @include('inc.alerts')
         @yield('content')
         @yield('widgets')
 
         <div style="height: 70px;"></div>
     </div>
+
         @include('inc.footer')
         @include('inc.body-scripts')
     </body>
