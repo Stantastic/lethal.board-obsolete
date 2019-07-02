@@ -11,7 +11,7 @@ class PermissionSeeder extends Seeder
         // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        // ACP
+        // ACP Permissions
         Permission::create(['name' => 'acp-access']);
         Permission::create(['name' => 'acp-edit-settings']);
         Permission::create(['name' => 'acp-edit-nodes']);
@@ -21,6 +21,15 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'acp-edit-widgets']);
         Permission::create(['name' => 'acp-edit-pages']);
         Permission::create(['name' => 'acp-edit-communication']);
+
+        // Moderation Permissions
+        Permission::create(['name' => 'mod-edit-topic']);
+        Permission::create(['name' => 'mod-delete-topic']);
+        Permission::create(['name' => 'mod-ban-user']);
+
+        // User Permissions
+        Permission::create(['name' => 'create-topic']);
+        Permission::create(['name' => 'create-post']);
 
 
 

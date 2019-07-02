@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Forum;
 use Illuminate\Http\Request;
+use App\Topic;
+use App\Post;
+use Illuminate\Support\Facades\Auth;
 
 class TopicsController extends Controller
 {
@@ -21,9 +25,10 @@ class TopicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($forum)
     {
-        //
+        $forum = Forum::find($forum);
+        return view('base.topic.create')->with('forum', $forum);
     }
 
     /**
@@ -34,7 +39,23 @@ class TopicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $this->validate($request, [
+            'title' => 'required',
+            'post-body' => 'required'
+        ]);
+
+        $topic = new Topic();
+        $topic->title = $request->input('title');
+        $topic->content = $request->input('post-body');
+        $topic->forum = $request->input('forum');
+        $topic->author = Auth::id();
+        $topic->save();
+
+
+        return redirect('/forum/' . $request->input('forum'))->with('success', trans('common.topic_created'));
+
     }
 
     /**
@@ -45,7 +66,17 @@ class TopicsController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $topic = Topic::find($id);
+        views($topic)->record();
+        $posts = Post::where('topic', $id)
+            ->orderBy('created_at', 'asc')
+            ->paginate();
+
+        return view('base.topic.show')->with('topic', $topic)->with('posts', $posts);
+
+
+
     }
 
     /**

@@ -21,7 +21,7 @@
                                 <th class="category-name"><i class="fas fa-sitemap fa-fw" aria-hidden="true"></i> <a href="">{{$category->name}}</a><small class="category-description">{{$category->description}}</small></th>
                                 <th class="topics d-none d-md-table-cell"><i class="fas fa-comments fa-fw" aria-hidden="true"></i> @lang('common.topics')</th>
                                 <th class="posts d-none d-md-table-cell"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i> @lang('common.posts')</th>
-                                <th class="lastpost d-none d-md-table-cell"><i class="fas fa-history fa-fw" aria-hidden="true"></i> <span> @lang('common.last_post')</span></th>
+                                <th class="lastpost d-none d-md-table-cell"><i class="fas fa-history fa-fw" aria-hidden="true"></i> <span> @lang('common.topic_latest')</span></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,11 +43,8 @@
                                                 </div>
                                             </div>
 
-                                            <a href="" class="forum-title">{{$forum->name}}</a><br>
+                                            <a href="forum/{{$forum->id}}" class="forum-title">{{$forum->name}}</a><br>
                                             <small class="forum-desc">{{$forum->description}}</small>
-                                            <div class="d-md-none">
-                                                Topics: <strong>17</strong>
-                                            </div>
                                         </td>
 
 
@@ -107,12 +104,14 @@
 
                         </tbody>
                     </table>
+
+
                 </div>
             @elseif(strcmp($category->type,'link') == 0)
 
                 <div class="card box-outline box-shadow " style="margin-top: 0.75em; margin-bottom: 0.75em;">
                     <div class="category-link">
-                        <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i> <a href="{{$category->url}}" target="_blank>{{$category->name}}</a><small class="category-description">{{$category->description}}</small>
+                        <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i> <a href="{{$category->url}}" target="_blank">{{$category->name}}</a><small><span class="category-description">{{$category->description}}</small>
                     </div>
                 </div>
             @endif
@@ -121,7 +120,14 @@
 
     @else
 
-        No categories
+
+        <div class="row">
+            <div class="col-12 inverse-text mt-2 mb-2 text-center">
+                <h5>@lang('common.board_no_categories')</h5>
+            </div>
+        </div>
+
+
 
     @endif
 

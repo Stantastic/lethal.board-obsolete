@@ -19,6 +19,35 @@ Breadcrumbs::for('members', function ($trail) {
     $trail->push(trans('common.members'), action('PagesController@members'));
 });
 
+// Index > CATEGORY > FORUM
+Breadcrumbs::for('/forum', function ($trail, $forum) {
+    $trail->parent('index');
+    $trail->push(\App\Category::getCategoryName($forum->category), action('CategoriesController@show', $forum->category));
+    $trail->push($forum->name,'ForumsController@show');
+});
+
+// Index > CATEGORY > FORUM > TOPIC
+Breadcrumbs::for('/topic', function ($trail, $topic) {
+
+    $forum = \App\Forum::find($topic->forum);
+    $category = \App\Category::find($forum->category);
+
+    $trail->parent('index');
+    $trail->push($category->name, action('CategoriesController@show', $forum->category));
+    $trail->push($forum->name,action('ForumsController@show', $forum->id));
+    $trail->push($topic->title, action('TopicsController@show', $topic->id));
+});
+
+// Index > CATEGORY > FORUM > TOPIC CREATE
+Breadcrumbs::for('/topic/create', function ($trail, $forum) {
+
+    $category = \App\Category::find($forum->category);
+
+    $trail->parent('index');
+    $trail->push($category->name, action('CategoriesController@show', $forum->category));
+    $trail->push($forum->name,action('ForumsController@show', $forum->id));
+    $trail->push(trans('common.topic_add_new'), action('TopicsController@create', $forum->id));
+});
 
 // ADMIN CONTROL PANEL
 

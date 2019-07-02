@@ -11,23 +11,31 @@
 |
 */
 Route::get('/', 'PagesController@index');
-
-
 Route::get('/team', 'PagesController@team');
 Route::get('/members', 'PagesController@members');
 
+
+
+// Base View
+Route::resource('/category', 'CategoriesController', ['only' => ['show']]);
+Route::resource('/forum', 'ForumsController', ['only' => ['show']]);
+Route::resource('/topic', 'TopicsController', ['only' => ['show','store']]);
+Route::get('/topic/create/{forum}', 'TopicsController@create');
+
+
+
+
+
 // Admin Control Panel Routes
 Route::get('/acp', 'PagesController@acp')->middleware('permission:acp-access');
-
 // - Nodes
 Route::resource('acp/nodes','NodesController', ['only' => ['index', 'store']])->middleware('permission:acp-edit-nodes');
 Route::post('/acp/nodes/store', 'NodesController@store')->middleware('permission:acp-edit-nodes');
-
 // - Categories, Forums & Links
 Route::resource('/acp/nodes/category', 'CategoriesController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']])->middleware('permission:acp-edit-nodes');
 Route::resource('/acp/nodes/link', 'LinksController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']])->middleware('permission:acp-edit-nodes');
 Route::resource('/acp/nodes/forum', 'ForumsController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']])->middleware('permission:acp-edit-nodes');
 
-
+// Auth Routes
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

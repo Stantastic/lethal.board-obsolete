@@ -93,8 +93,8 @@ footer {
 }
 .muted-a{
     color: rgba(255,255,255,0.5);
-      text-decoration: none;
-  }
+    text-decoration: none;
+}
 .muted-a:hover{
     color: #00f078;
     text-decoration: none;
@@ -223,13 +223,12 @@ td.topic-name {
     width: 50%;
 }
 .table-striped tbody tr:nth-of-type(odd) {
-     background-color: #ddd;
- }
+    background-color:#d6d6d6;
+}
 .table-striped tbody tr:nth-of-type(even) {
     background-color: #ddd;
 }
 .table td {
-    background-color: #ddd;
     background-image: url("../img/noise.png");
     padding: 0;
     padding-left: .75rem;
@@ -278,7 +277,7 @@ scrollbar-width: none;  // Firefox
 }
 
 #forum_node{
- background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.5);
     color: rgba(0,0,0,0.5);
 }
 #forums_node{
@@ -299,12 +298,27 @@ scrollbar-width: none;  // Firefox
 }
 
 /*Helpers*/
+.readable{
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+}
+.readable:hover{
+    text-shadow: none;
+}
+
 .box-shadow{
     box-shadow: 0 0 10px rgba(0,0,0,0.75);
 }
 
 .box-outline{
     border: 1px inset #00f078;
+}
+
+.box-outline-right{
+    border-right: 1px inset #00f078;
+}
+
+.box-outline-bottom{
+    border-bottom: 1px inset #00f078;
 }
 
 .box-dark{
@@ -383,9 +397,26 @@ scrollbar-width: none;  // Firefox
     content: '';
 }
 
- .btn-xs {
+.btn-xs {
     padding  : .25rem .4rem;
     font-size  : .875rem;
     line-height  : .5;
     border-radius : .2rem;
+}
+
+.pagination-wrapper {
+    text-align: center;
+}
+.pagination-wrapper  ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.pagination-wrapper  li {
+    float: left;
+}
+
+.post-body{
+    background-color: #ddd;
+    background-image: url("../img/noise.png");
 }

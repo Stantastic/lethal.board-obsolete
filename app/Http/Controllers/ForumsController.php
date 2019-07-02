@@ -3,13 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Http\Request;
-use App\Category;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Forum;
+use App\Category;
+use App\Topic;
+
+
 
 class ForumsController extends Controller
 {
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $forum = Forum::find($id);
+        $topics = Topic::where('forum', $id)
+            ->orderBy('created_at', 'desc')
+            ->orderBy('sticky', 'desc')
+            ->paginate(15);
+
+        return view('base.forum')->with('forum', $forum)->with('topics', $topics);
+    }
 
     /**
      * Show the form for creating a new resource.

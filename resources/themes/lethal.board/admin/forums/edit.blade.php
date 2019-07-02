@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group row mb-0">
                         <div class="offset-4 col-8">
-                            {{ Form::button('<i class="fa fa-plus"></i> '.trans('common.category_create'), ['type' => 'submit', 'class' => 'btn btn-success btn-block'] )  }}
+                            {{ Form::button('<i class="fa fa-plus"></i> '.trans('common.save_changes'), ['type' => 'submit', 'class' => 'btn btn-success btn-block'] )  }}
                         </div>
                     </div>
                 </div>

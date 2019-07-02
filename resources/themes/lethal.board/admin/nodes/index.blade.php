@@ -113,8 +113,9 @@
                                         @if(strcmp($forum->category, $category->id) == 0)
 
                                             <!-- FORUM -->
-                                                <form action="{{ action('ForumsController@destroy', $forum->id)}}" method="POST" style="margin: 0; padding: 0;">
                                                 <li id="forum_node" class="list-group-item nested-sortable" data-order-value="f-{{$forum->id}}">
+                                                <form action="{{ action('ForumsController@destroy', $forum->id)}}" method="POST" style="margin: 0; padding: 0;">
+
                                 <span class="node-title">
                                     <i class="fas fa-comments fa-fw"></i>
                                     {{$forum->name}}
@@ -126,8 +127,9 @@
                                     <button type="submit" class="btn btn-xs btn-danger"><i class="fas fa-trash-alt fa-fw"></i></button>
                                 </span>
 
-                                                </li>
+
                                                 </form>
+                                                </li>
                                                 <!-- /FORUM -->
                                             @endif
                                         @endforeach

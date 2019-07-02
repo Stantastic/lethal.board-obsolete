@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Forum extends Model
 {
@@ -13,4 +14,5 @@ class Forum extends Model
     public $primaryKey = 'id';
 
     public $timestamps = false;
+
 }

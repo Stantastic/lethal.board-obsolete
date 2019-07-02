@@ -43,9 +43,10 @@ class User extends Authenticatable
     ];
 
     public static function getDisplayName($id){
-
         return DB::table('users')->where('id', '>=', $id)->value('display_name');
+    }
 
-
+    public static function getAvatar ($id){
+        return DB::table('users')->where('id', '>=', $id)->value('avatar');
     }
 }
