@@ -1,5 +1,8 @@
 ![lethal.board](GIT.png)
 --------
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1eae518a104b4864b70e494d146d9659)](https://app.codacy.com/app/Stantastic/lethal.board?utm_source=github.com&utm_medium=referral&utm_content=Stantastic/lethal.board&utm_campaign=Badge_Grade_Dashboard)
+
 ![Discord](https://img.shields.io/discord/220393265420042240.svg?style=popout)
 ## About
 - ```this()``` is meant to replace lame, old-fashioned and also paid forum software found around the internet. 
