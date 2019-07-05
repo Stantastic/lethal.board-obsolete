@@ -1,6 +1,6 @@
 ![lethal.board](GIT.png)
-
-
+--------
+![Discord](https://img.shields.io/discord/220393265420042240.svg?style=popout)
 ## About
 - ```this()``` is meant to replace lame, old-fashioned and also paid forum software found around the internet. 
 - ```this()``` is built by the community for the community.
