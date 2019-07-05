@@ -4,18 +4,8 @@
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 
-@if(session('errors'))
-    @if(count($errors) > 0)
-        @foreach($errors->all() as $error)
-            <div class="alert alert-danger">
-                {{$error}}
-            </div>
-        @endforeach
-    @endif
-@endif
-
 @if(session('success'))
-    <div class="alert alert-success animated pulse text-center">
+    <div class="alert alert-success animated flipInX text-center">
         <h4 class="alert-heading">Success!</h4>
         <p>
         {{session('success')}}
@@ -49,6 +39,36 @@
             })
         });
     </script>
+@endif
+
+@if(session('success-notify'))
+    <script>
+        $( document ).ready(function() {
+            $.notify({
+                title: '<strong>Success!</strong>',
+                message: '{{session('success-notify')}}'
+            },{
+                type: 'success',
+                animate: {
+                    enter: 'animated fadeInRight',
+                    exit: 'animated fadeOutRight'
+                },
+                onShow: function() {
+                    this.css({'width':'20%'});
+                },
+            });
+        });
+    </script>
+@endif
+
+@if(session('errors'))
+    @if(count($errors) > 0)
+        @foreach($errors->all() as $error)
+            <div class="alert alert-danger">
+                {{$error}}
+            </div>
+        @endforeach
+    @endif
 @endif
 
 @if(session('error'))

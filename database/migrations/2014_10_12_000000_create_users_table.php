@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('slug')->nullable();
 
             $table->string('display_name');
             $table->string('first_name')->nullable();
@@ -25,7 +26,8 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('location')->nullable();
             $table->date('birthday')->nullable();
-            $table->string('bio')->nullable();
+            $table->mediumText('signature')->nullable();
+            $table->mediumText('bio')->nullable();
 
             $table->string('discord')->nullable();
             $table->string('steam')->nullable();

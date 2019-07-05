@@ -18,6 +18,7 @@ class CreateForumsTable extends Migration
             $table->string('name');
             $table->mediumText('description')->nullable();
             $table->string('category');
+            $table->string('slug')->nullable();
             $table->integer('order')->default(0);
         });
     }

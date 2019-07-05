@@ -15,4 +15,17 @@ class Forum extends Model
 
     public $timestamps = false;
 
+    public static function getLastPostAuthor($id){
+
+            $latestPostAuthor = DB::table('topics')
+                ->join('posts', 'posts.topic', '=', 'topics.id')
+                ->join('users', 'users.id', '=', 'posts.author')
+                ->join('forums', 'topics.forum', '=', 'forums.id')
+                ->where('forum', $id)
+                ->orderBy('posts.created_at', 'desc')
+                ->first();
+
+            return $latestPostAuthor;
+    }
+
 }

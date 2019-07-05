@@ -8,24 +8,35 @@
 - ```this()``` is free to use for anyone.
 
 ## Features
-- game-server status pages
+- game-server status page/list
 - discord integration via webhooks
 - sleek & modern look
 - easy to customize and extend
 - permission & group management
+- seo friendly urls
+- user tagging & mentioning
+- notifications & and mail sending
+- custom pages
+- private messaging & conversations
+- topic & post reactions
 - much more is planned but baby-steps
 
+## Tip of the Day
+Ignore all commit messages since they won't make sense right now :sweat_smile:
 
 ## Credits
 This project would not be possible without the work of all the other open-source authors:
 
 - [Animate.css](http://daneden.github.io/animate.css/)
+- [Awesome Bootstrap Checkbox](https://github.com/flatlogic/awesome-bootstrap-checkbox)
 - [Bootstrap](http://getbootstrap.com)
+- [Bootstrap-Notify](https://github.com/mouse0270/bootstrap-notify)
 - [FontAwesome](http://fontawesome.io)
 - [FontAwesome Animations](https://github.com/l-lin/font-awesome-animation)
 - [Laravel](https://laravel.com)
 - [Summernote](http://summernote.org/)
 - [Select2](https://select2.github.io)
+- [Sortable.js](https://github.com/SortableJS/Sortable)
 - [SweetAlert2](https://github.com/sweetalert2/sweetalert2)
 - [TWEmoji](https://twemoji.twitter.com)
 

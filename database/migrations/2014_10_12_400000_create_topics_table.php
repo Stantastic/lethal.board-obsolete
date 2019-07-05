@@ -19,9 +19,11 @@ class CreateTopicsTable extends Migration
             $table->mediumText('content');
             $table->string('forum');
             $table->string('author');
+            $table->string('slug')->nullable();
             $table->tinyInteger('sticky')->default(0);
             $table->tinyInteger('locked')->default(0);
-            $table->string('prefix')->nullable();
+            $table->string('type')->default('default');
+            $table->string('color')->default('rgb(0,240,120)');
             $table->integer('views')->default(0);
             $table->timestamps();
         });

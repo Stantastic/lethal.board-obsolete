@@ -17,7 +17,12 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id){
+        $category = Category::find($id);
+        $forums = Forum::where('category', $id)
+            ->orderBy('order', 'asc')
+            ->paginate(10);
 
+        return view('base.category')->with('category', $category)->with('forums', $forums);
     }
 
     /**

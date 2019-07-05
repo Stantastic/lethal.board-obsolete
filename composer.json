@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
+        "cviebrock/eloquent-sluggable": "4.8",
         "cyrildewit/eloquent-viewable": "^3.2",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "fideloper/proxy": "^4.0",

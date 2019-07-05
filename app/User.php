@@ -42,6 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public static function getById($id){
+        return DB::table('users')->where('id', '>=', $id)->first();
+    }
+
     public static function getDisplayName($id){
         return DB::table('users')->where('id', '>=', $id)->value('display_name');
     }

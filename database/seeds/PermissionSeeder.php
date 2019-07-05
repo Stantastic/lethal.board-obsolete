@@ -23,14 +23,18 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'acp-edit-communication']);
 
         // Moderation Permissions
-        Permission::create(['name' => 'mod-edit-topic']);
-        Permission::create(['name' => 'mod-delete-topic']);
+        Permission::create(['name' => 'mod-topic-edit']);
+        Permission::create(['name' => 'mod-topic-delete']);
+        Permission::create(['name' => 'mod-topic-lock']);
         Permission::create(['name' => 'mod-ban-user']);
+        Permission::create(['name' => 'mod-topic-move']);
+        Permission::create(['name' => 'mod-topic-stick']);
+        Permission::create(['name' => 'mod-user-edit']);
 
         // User Permissions
         Permission::create(['name' => 'create-topic']);
         Permission::create(['name' => 'create-post']);
-
+        Permission::create(['name' => 'topic-prefix']);
 
 
         // Create Default Roles

@@ -16,8 +16,7 @@
 @section('acp-content')
     <script>
         $(document).ready(function () {
-            Sortable.create(sortable_nodes, {
-            });
+            Sortable.create(sortable_nodes, {});
             for (var i = 0; i < forums_node.length; i++) {
                 new Sortable(forums_node[i], {
                     group: 'nested',
@@ -26,10 +25,12 @@
                     swapThreshold: 0.65
                 });
             }
+
             function pushOrder() {
                 const nestedQuery = '.nested-sortable';
                 const identifier = 'orderValue';
                 const root = document.getElementById('sortable_nodes');
+
                 function serialize(sortable) {
                     var serialized = [];
                     var children = [].slice.call(sortable.children);
@@ -45,7 +46,7 @@
 
                 var obj = serialize(root);
 
-                var result = Object.keys(obj).map(function(key) {
+                var result = Object.keys(obj).map(function (key) {
                     return [Number(key), obj[key]];
                 });
 
@@ -55,13 +56,15 @@
                     type: "POST",
                     url: '/acp/nodes/store',
                     headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
 
                     data: {result},
 
                 });
 
             }
+
             document.getElementById('save_button').onclick = pushOrder;
         });
 
@@ -90,10 +93,12 @@
 
                         <!-- CATEGORY -->
 
-                            <li id="category_node" class="list-group-item box-shadow nested-sortable" data-order-value="c-{{$category->id}}">
+                            <li id="category_node" class="list-group-item box-shadow nested-sortable"
+                                data-order-value="c-{{$category->id}}">
 
 
-                                <form action="{{ action('CategoriesController@destroy', $category->id)}}" method="POST" style="margin: 0; padding: 0;">
+                                <form action="{{ action('CategoriesController@destroy', $category->id)}}" method="POST"
+                                      style="margin: 0; padding: 0;">
                                     <span class="node-title">
                                         <i class="fas fa-bars fa-fw"></i>
                                         {{$category->name}}
@@ -101,8 +106,10 @@
                                     <span class="float-right">
                                         @method('DELETE')
                                         @csrf
-                                        <a href="nodes/category/{{$category->id}}/edit" class="btn btn-xs btn-success"><i class="fas fa-edit fa-fw"></i> @lang('common.edit')</a>
-                                        <button type="submit" class="btn btn-xs btn-danger"><i class="fas fa-trash-alt fa-fw"></i></button>
+                                        <a href="nodes/category/{{$category->id}}/edit"
+                                           class="btn btn-xs btn-success"><i class="fas fa-edit fa-fw"></i> @lang('common.edit')</a>
+                                        <button type="submit" class="btn btn-xs btn-danger"><i
+                                                class="fas fa-trash-alt fa-fw"></i></button>
                                     </span>
                                 </form>
 
@@ -113,22 +120,26 @@
                                         @if(strcmp($forum->category, $category->id) == 0)
 
                                             <!-- FORUM -->
-                                                <li id="forum_node" class="list-group-item nested-sortable" data-order-value="f-{{$forum->id}}">
-                                                <form action="{{ action('ForumsController@destroy', $forum->id)}}" method="POST" style="margin: 0; padding: 0;">
+                                                <li id="forum_node" class="list-group-item nested-sortable"
+                                                    data-order-value="f-{{$forum->id}}">
+                                                    <form action="{{ action('ForumsController@destroy', $forum->id)}}"
+                                                          method="POST" style="margin: 0; padding: 0;">
 
                                 <span class="node-title">
                                     <i class="fas fa-comments fa-fw"></i>
                                     {{$forum->name}}
                                 </span>
-                                                    <span class="float-right">
+                                                        <span class="float-right">
                                                          @method('DELETE')
-                                                        @csrf
-                                    <a href="nodes/forum/{{$forum->id}}/edit" class="btn btn-xs btn-success"><i class="fas fa-edit fa-fw"></i> @lang('common.edit')</a>
-                                    <button type="submit" class="btn btn-xs btn-danger"><i class="fas fa-trash-alt fa-fw"></i></button>
+                                                            @csrf
+                                    <a href="nodes/forum/{{$forum->id}}/edit" class="btn btn-xs btn-success"><i
+                                            class="fas fa-edit fa-fw"></i> @lang('common.edit')</a>
+                                    <button type="submit" class="btn btn-xs btn-danger"><i
+                                            class="fas fa-trash-alt fa-fw"></i></button>
                                 </span>
 
 
-                                                </form>
+                                                    </form>
                                                 </li>
                                                 <!-- /FORUM -->
                                             @endif
@@ -139,9 +150,11 @@
                             <!-- /CATEGORY -->
                     @elseif(strcmp($category->type, 'link') == 0)
                         <!-- LINK -->
-                            <li id="link_node" class="list-group-item box-shadow nested-sortable" data-order-value="c-{{$category->id}}">
+                            <li id="link_node" class="list-group-item box-shadow nested-sortable"
+                                data-order-value="c-{{$category->id}}">
 
-                                <form action="{{ action('LinksController@destroy', $category->id)}}" method="POST" style="margin: 0; padding: 0;">
+                                <form action="{{ action('LinksController@destroy', $category->id)}}" method="POST"
+                                      style="margin: 0; padding: 0;">
                                     <span class="node-title">
                                         <i class="fas fa-bars fa-fw"></i>
                                         {{$category->name}}
@@ -149,8 +162,10 @@
                                     <span class="float-right">
                                         @method('DELETE')
                                         @csrf
-                                        <a href="nodes/link/{{$category->id}}/edit" class="btn btn-xs btn-success"><i class="fas fa-edit fa-fw"></i> @lang('common.edit')</a>
-                                        <button type="submit" class="btn btn-xs btn-danger"><i class="fas fa-trash-alt fa-fw"></i></button>
+                                        <a href="nodes/link/{{$category->id}}/edit" class="btn btn-xs btn-success"><i
+                                                class="fas fa-edit fa-fw"></i> @lang('common.edit')</a>
+                                        <button type="submit" class="btn btn-xs btn-danger"><i
+                                                class="fas fa-trash-alt fa-fw"></i></button>
                                     </span>
                                 </form>
                             </li>
@@ -159,7 +174,6 @@
                     @endforeach
                 @endif
             </ol>
-
 
 
         </div>

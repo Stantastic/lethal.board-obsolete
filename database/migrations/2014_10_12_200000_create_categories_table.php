@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->mediumText('description')->nullable();
             $table->string('type')->default('category');
             $table->string('url')->nullable();
+            $table->string('slug')->nullable();
             $table->integer('order')->default(0);
         });
     }

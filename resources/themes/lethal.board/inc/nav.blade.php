@@ -16,7 +16,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Quick Nav
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu dropdown-menu-right mainnav-dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/profile/edit">Control Panel</a>
               </div>
             </li>

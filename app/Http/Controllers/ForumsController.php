@@ -23,8 +23,8 @@ class ForumsController extends Controller
     {
         $forum = Forum::find($id);
         $topics = Topic::where('forum', $id)
-            ->orderBy('created_at', 'desc')
             ->orderBy('sticky', 'desc')
+            ->orderBy('created_at', 'desc')
             ->paginate(15);
 
         return view('base.forum')->with('forum', $forum)->with('topics', $topics);
@@ -46,6 +46,7 @@ class ForumsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * @throws
      */
     public function store(Request $request)
     {
@@ -88,6 +89,7 @@ class ForumsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * @throws
      */
     public function update(Request $request, $id)
     {

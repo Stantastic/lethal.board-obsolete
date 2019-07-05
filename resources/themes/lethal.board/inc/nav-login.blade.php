@@ -18,7 +18,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 @lang('common.greeting'), {{{ isset(Auth::user()->display_name) ? Auth::user()->display_name : Auth::user()->email }}}
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-right mainnav-dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/profile/edit">Control Panel</a>
                 <a class="dropdown-item" href="/profile/{{Auth::user()->id}}">View Profile</a>
                 <div class="dropdown-divider"></div>
@@ -35,7 +35,7 @@
                 @lang('auth.not_logged_in')
             </a>
             </a>
-            <div class="dropdown-menu dropdown-menu-right" style="width: 250px;" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-right mainnav-dropdown-menu direct-text" style="width: 250px; left: 40px!important;" aria-labelledby="navbarDropdown">
 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf

@@ -41,7 +41,8 @@
                                 @foreach($categories as $category)
                                     @if($category->type ==='category')
                                         @if($category->id == $post->category)
-                                            <option selected="selected" value="{{$category->id}}">{{$category->name}}</option>
+                                            <option selected="selected"
+                                                    value="{{$category->id}}">{{$category->name}}</option>
                                         @else
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endif

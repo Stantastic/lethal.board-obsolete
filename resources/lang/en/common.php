@@ -12,6 +12,14 @@ return [
     'replies' => 'Replies',
     'by' => 'by',
     'on' => 'on',
+    'ago' => 'ago',
+    'moments_ago' => 'a few moments ago',
+    'minute' => 'minute',
+    'minutes' => 'minutes',
+    'delete' => 'Delete',
+    'default' => 'Default',
+    'type' => 'Type',
+    'color' => 'Color',
 
     //COMMON
     'edit' => 'Edit',
@@ -66,7 +74,7 @@ return [
     'link_delete_warning' => 'Are you sure you want to delete this link?',
     'link_add_subtext' => 'Links can redirect users to other pages.',
     'link_title' => 'Link Title',
-    'link_url' => 'URL to go to',
+    'link_url' => 'Destination URL',
     'link_create' => 'Create this Link',
     'link_created' => 'Link has been successfully created!',
     'link_update' => 'Update this Link',
@@ -78,19 +86,52 @@ return [
     //TOPIC
     'topic' => 'Topic',
     'topics' => 'Topics',
-	'topic_latest' => 'Latest Topic',
+    'topic_latest' => 'Latest Topic',
     'topic_add' => 'Create Topic',
     'topic_add_new' => 'Create a new Topic',
     'topic_edit' => 'Edit Topic',
+    'topic_cannot_edit' => 'You cannot edit this Topic!',
+    'topic_edited' => 'Topic was successfully updated!',
     'topic_delete_warning' => 'Are you sure you want to delete this topic?',
     'topic_add_subtext' => 'Create a Topic you can discuss with other people.',
+    'topic_edit_subtext' => 'Edit an already created Topic.',
     'topic_title' => 'Topic Title',
     'topic_create' => 'Create this Topic',
+    'topic_update' => 'Update this Topic',
     'topic_created' => 'Topic has been successfully created!',
     'topic_updated' => 'Topic has been successfully updated!',
     'topic_deleted' => 'Topic has been successfully deleted!',
     'topic_not_found' => 'Topic not found',
     'topic_reply_full' => 'Reply to this Topic',
+    'topic_lock' => 'Lock Topic',
+    'topic_unlock' => 'Unlock Topic',
+    'topic_locked' => 'The Topic has been locked!',
+    'topic_unlocked' => 'The Topic has been unlocked!',
+    'topic_is_locked' => 'This Topic is locked...',
+    'topic_move' => 'Move Topic',
+    'topic_delete' => 'Delete Topic',
+    'topic_stick' => 'Pin Topic',
+    'topic_unstick' => 'Unpin Topic',
+    'topic_sticked' => 'The Topic has been pinned!',
+    'topic_unsticked' => 'The Topic has been unpinned!',
+
+    //TOPIC TYPES & COLORS
+    'topic_type_default' => 'Default',
+    'topic_type_game' => 'Game',
+    'topic_type_attention' => 'Attention',
+    'topic_type_question' => 'Question',
+    'topic_type_warning' => 'Warning',
+    'topic_type_code' => 'Programming',
+    'topic_type_server' => 'Server',
+    'topic_type_announcement' => 'Announcement',
+
+    'topic_color_green' => 'Green',
+    'topic_color_blue' => 'Blue',
+    'topic_color_red' => 'Red',
+    'topic_color_yellow' => 'Yellow',
+    'topic_color_pink' => 'Pink',
+    'topic_color_lilac' => 'Lilac',
+
 
     //POST
     'post' => 'Post',
@@ -115,5 +156,4 @@ return [
     'nodes_desc' => 'Drag & Drop categories, forums and links to set its display order and parent.',
 
 
-
-    ];
+];

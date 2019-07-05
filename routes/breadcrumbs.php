@@ -20,6 +20,12 @@ Breadcrumbs::for('members', function ($trail) {
 });
 
 // Index > CATEGORY > FORUM
+Breadcrumbs::for('/category', function ($trail, $category) {
+    $trail->parent('index');
+    $trail->push($category->name,'CategoriesController@show');
+});
+
+// Index > CATEGORY > FORUM
 Breadcrumbs::for('/forum', function ($trail, $forum) {
     $trail->parent('index');
     $trail->push(\App\Category::getCategoryName($forum->category), action('CategoriesController@show', $forum->category));
@@ -47,6 +53,18 @@ Breadcrumbs::for('/topic/create', function ($trail, $forum) {
     $trail->push($category->name, action('CategoriesController@show', $forum->category));
     $trail->push($forum->name,action('ForumsController@show', $forum->id));
     $trail->push(trans('common.topic_add_new'), action('TopicsController@create', $forum->id));
+});
+
+// Index > CATEGORY > FORUM > TOPIC EDIT
+Breadcrumbs::for('/topic/edit', function ($trail, $topic) {
+
+    $forum = \App\Forum::find($topic->forum);
+    $category = \App\Category::find($forum->category);
+
+    $trail->parent('index');
+    $trail->push($category->name, action('CategoriesController@show', $forum->category));
+    $trail->push($forum->name,action('ForumsController@show', $forum->id));
+    $trail->push(trans('common.topic_edit'), action('TopicsController@edit', $topic->id));
 });
 
 // ADMIN CONTROL PANEL

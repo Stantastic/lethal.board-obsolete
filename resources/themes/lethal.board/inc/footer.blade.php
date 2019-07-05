@@ -17,6 +17,6 @@
             @endcan
 
         </span>
-        <span class="float-right green">Made with <i class="fas fa-heart pulsate text-danger"></i> and <i class="fas fa-code text-success"></i></span>
+        <span class="float-right green">Made with <i class="fas fa-heart pulsate text-danger"></i> and <i class="fab fa-laravel text-success"></i></span>
     </div>
 </footer>
