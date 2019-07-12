@@ -10,17 +10,15 @@
 
 @section('content')
 
+    @can('create-topic')
     <div class="row">
-
         <div class="col-3 offset-9">
-
             <div class="card box-shadow box-dark box-outline p-1" style="margin-top: 0em; margin-bottom: 0em;">
                 <a href="/topic/create/{{$forum->id}}" class="btn btn-sm btn-success">@lang('common.topic_add_new')</a>
             </div>
         </div>
-
     </div>
-
+    @endcan
 
     <div class="card box-shadow box-outline" style="margin-top: 0.75em; margin-bottom: 0.75em;">
         <table class="table table-striped table-borderless table-hover " style="border-spacing:0 15px; ">
@@ -73,8 +71,7 @@
                                     class="fas fa-map-pin "></i>@endif @if($topic->locked == '1')<i
                                     class="fas fa-lock "></i> @endif{{$topic->title}}</a>
                             <br>
-                            <small
-                                class="forum-desc ">@lang('common.by') {{\App\User::getDisplayName($topic->author)}}</small>
+                            <small class="forum-desc ">@lang('common.by') <a href="/user/{{\App\User::find($topic->author)->slug}}" class="readable" style="color:{{\App\User::find($topic->author)->roles->first()->color}};" > {{\App\User::getDisplayName($topic->author)}}</a></small>
                         </td>
 
                         <td class="lastpost d-none d-md-table-cell" style="padding: 0.75em">
@@ -89,15 +86,15 @@
                                         @php
                                             $lastAuthor = \App\Forum::getLastPostAuthor($forum->id);
                                         @endphp
-                                            @if(empty($lastAuthor->avatar))
+                                            @if(empty(\App\Profile::get($lastAuthor->id)->avatar))
                                                <img src='{{ Avatar::create($lastAuthor->display_name)->toBase64()}}' width="40" height="40" class="rounded" style="margin-top: 5px;" />
                                             @else
-                                                <img src='{{$lastAuthor->avatar}}' width="40" height="40" class="rounded" style="margin-top: 5px;"/>
+                                                <img src='{{\App\Profile::get($lastAuthor->id)->avatar}}' width="40" height="40" class="rounded" style="margin-top: 5px;"/>
                                             @endif
                                     </div>
                                     <div class="col-10">
 
-                                            <a href="/user/{{$lastAuthor->id}}" class="lastsubject readable">{{$lastAuthor->display_name}}</a>
+                                            <a href="/user/{{\App\User::find($lastAuthor->id)->slug}}" class="lastsubject readable" style="color:{{\App\User::find($lastAuthor->id)->roles->first()->color}};">{{$lastAuthor->display_name}}</a>
                                             <br>
                                             <small>
                                                 <i class="far fa-clock"></i>

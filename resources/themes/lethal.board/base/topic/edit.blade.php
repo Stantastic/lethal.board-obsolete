@@ -85,7 +85,10 @@
                 </div>
                 <div class="form-group row mb-0">
                     <div class="col-12">
-                        {{ Form::button('<i class="fa fa-save"></i> '.trans('common.topic_update'), ['type' => 'submit', 'class' => 'btn btn-success btn-block'] )  }}
+                        <div class="btn-group btn-block">
+                            {{ Form::button('<i class="fa fa-save"></i> '.trans('common.topic_update'), ['type' => 'submit', 'class' => 'btn btn-success btn-block'] )  }}
+                            <a href="{{ url()->previous() }}" class="btn btn-danger"><i class="fas fa-times"></i> @lang('common.cancel')</a>
+                        </div>
                     </div>
                 </div>
             </div>

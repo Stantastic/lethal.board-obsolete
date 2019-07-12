@@ -28,16 +28,16 @@ return [
     'shape' => 'square',
 
     // Image width, in pixel
-    'width'    => 40,
+    'width'    => 75,
 
     // Image height, in pixel
-    'height'   => 40,
+    'height'   => 75,
 
     // Number of characters used as initials. If name consists of single word, the first N character will be used
     'chars'    => 1,
 
     // font size
-    'fontSize' => 36,
+    'fontSize' => 60,
 
     // convert initial letter in uppercase
     'uppercase' => true,
@@ -48,35 +48,16 @@ return [
 
     // List of foreground colors to be used, randomly selected based on name supplied
     'foregrounds'   => [
-        '#FFFFFF',
+        '#333',
     ],
 
     // List of background colors to be used, randomly selected based on name supplied
     'backgrounds'   => [
-        '#f44336',
-        '#E91E63',
-        '#9C27B0',
-        '#673AB7',
-        '#3F51B5',
-        '#2196F3',
-        '#03A9F4',
-        '#00BCD4',
-        '#009688',
-        '#4CAF50',
-        '#8BC34A',
-        '#CDDC39',
-        '#FFC107',
-        '#FF9800',
-        '#FF5722',
+        '#00f078',
     ],
 
     'border'    => [
         'size'  => 1,
-
-        // border color, available value are:
-        // 'foreground' (same as foreground color)
-        // 'background' (same as background color)
-        // or any valid hex ('#aabbcc')
         'color' => 'foreground',
     ],
 ];

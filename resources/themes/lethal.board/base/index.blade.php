@@ -70,11 +70,11 @@
 
                                             @if(($postsCount = DB::table('topics')->join('posts', 'posts.topic', '=', 'topics.id')->where('forum', $forum->id)->count())>0)
 
-                                                <a href="/topic/{{\App\Topic::getLatestInForum($forum->id)->id}}"
+                                                <a href="/topic/{{\App\Topic::getLatestInForum($forum->id)->slug}}"
                                                    class="lastsubject readable">{{\App\Topic::getLatestInForum($forum->id)->title}}</a>
                                                 <br>
-                                                <small><i class="far fa-user"></i> <a href=""
-                                                                                      class="username readable">{{\App\User::getDisplayName(\App\Topic::getLatestInForum($forum->id)->author)}}</a>
+                                                <small><i class="far fa-user"></i>
+                                                    <a href="/user/{{\App\User::find(\App\Topic::getLatestInForum($forum->id)->author)->slug}}" class="username readable"style="color:{{\App\User::find(\App\Topic::getLatestInForum($forum->id)->author)->roles->first()->color}}; font-weight: 600;">{{\App\User::getDisplayName(\App\Topic::getLatestInForum($forum->id)->author)}}</a>
 
                                                     <br>
 
@@ -92,7 +92,6 @@
 
                         </tbody>
                     </table>
-
 
                 </div>
             @elseif(strcmp($category->type,'link') == 0)

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Topic;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
+use Redirect;
 
 class TopicsController extends Controller
 {
@@ -70,9 +71,14 @@ class TopicsController extends Controller
 
         $topic = Topic::findBySlug($id);
         views($topic)->record();
-        $posts = Post::where('topic', $id)
+
+        if ($topic=== null){
+            return abort(404);
+        }
+
+        $posts = Post::where('topic', $topic->id)
             ->orderBy('created_at', 'asc')
-            ->paginate();
+            ->paginate(20);
 
         return view('base.topic.show')->with('topic', $topic)->with('posts', $posts);
 
@@ -88,7 +94,9 @@ class TopicsController extends Controller
     public function edit($id)
     {
         $topic = Topic::find($id);
-
+        if ($topic=== null){
+            return abort(404);
+        }
         if (!isset($topic)){
             return redirect('/acp/nodes')->with('error', trans('common.forum_not_found'));
         }
@@ -109,6 +117,7 @@ class TopicsController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
      * @return \Illuminate\Http\Response
+     * @throws
      */
     public function update(Request $request, $id)
     {
@@ -121,6 +130,7 @@ class TopicsController extends Controller
         $topic->content = $request->input('post-body');
         $topic->forum = $request->input('forum');
         $topic->author = Auth::id();
+        $topic->increment('times_edited');
         if (!empty($request->input('color'))) {
             $topic->color = $request->input('color');
         }
@@ -142,11 +152,11 @@ class TopicsController extends Controller
     {
         $topic = Topic::find($id);
         if (!isset($topic)){
-            Redirect::back()->with('error', trans('common.topic_not_found'));
+            return back()->with('error', trans('common.topic_not_found'));
         }
         if (isset($topic)){
                 $topic->delete();
-            return view('base.index')->with('success', trans('common.topic_deleted'));
+            return redirect('/')->with('success', trans('common.topic_deleted'));
         }
     }
 

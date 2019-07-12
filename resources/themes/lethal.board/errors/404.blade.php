@@ -10,8 +10,11 @@
 @section('content')
     <div class="container">
 
-        <h1 class="text-danger">404.</h1>
+        <div class="col-12 text-center">
 
+            <h2>This page does not exist!</h2>
+
+        </div>
     </div>
 
     @endsection

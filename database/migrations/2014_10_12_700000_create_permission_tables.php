@@ -26,6 +26,9 @@ class CreatePermissionTables extends Migration
         Schema::create($tableNames['roles'], function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('display_name');
+            $table->string('color')->default('rgb(0,240,120)');
+            $table->tinyInteger('is_team')->default(0);
             $table->string('guard_name');
             $table->timestamps();
         });

@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->mediumText('content');
             $table->string('topic');
             $table->string('author');
+            $table->tinyInteger('times_edited')->default(0);
             $table->timestamps();
         });
     }

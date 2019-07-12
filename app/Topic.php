@@ -16,7 +16,7 @@ class Topic extends Model implements ViewableContract
     use SluggableScopeHelpers;
 
     protected $table = 'topics';
-    protected $fillable = ['locked', 'sticky'];
+    protected $fillable = ['locked', 'sticky', 'times_edited'];
     public $primaryKey = 'id';
     public $timestamps = true;
 

@@ -10,7 +10,11 @@
 @section('content')
     <div class="container">
 
-        <h1 class="text-danger">403.</h1>
+        <div class="col-12 text-center">
+
+            <h2>You don't have access to this page!</h2>
+
+        </div>
 
     </div>
 

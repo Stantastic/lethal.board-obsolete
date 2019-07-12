@@ -24,7 +24,7 @@ class CreateTopicsTable extends Migration
             $table->tinyInteger('locked')->default(0);
             $table->string('type')->default('default');
             $table->string('color')->default('rgb(0,240,120)');
-            $table->integer('views')->default(0);
+            $table->tinyInteger('times_edited')->default(0);
             $table->timestamps();
         });
     }

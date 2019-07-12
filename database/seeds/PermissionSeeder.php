@@ -29,6 +29,8 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'mod-ban-user']);
         Permission::create(['name' => 'mod-topic-move']);
         Permission::create(['name' => 'mod-topic-stick']);
+        Permission::create(['name' => 'mod-post-delete']);
+        Permission::create(['name' => 'mod-post-edit']);
         Permission::create(['name' => 'mod-user-edit']);
 
         // User Permissions
@@ -38,9 +40,9 @@ class PermissionSeeder extends Seeder
 
 
         // Create Default Roles
-        Role::create(['name' => 'default']);
+        Role::create(['name' => 'default', 'display_name'=>'User']);
 
-        $root = Role::create(['name' => 'root']);
+        $root = Role::create(['name' => 'root', 'display_name'=>'Admin', 'is_team'=> 1]);
         $root->givePermissionTo(Permission::all());
     }
 }

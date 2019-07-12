@@ -356,6 +356,9 @@ td.topic-name {
 .box-outline-right {
     border-right: 1px inset #00f078;
 }
+.box-outline-left {
+    border-left: 1px inset #00f078;
+}
 
 .box-outline-bottom {
     border-bottom: 1px inset #00f078;
@@ -486,20 +489,47 @@ td.topic-name {
     line-height: .5;
     border-radius: .2rem;
 }
-
+/* Pagination */
 .pagination-wrapper {
     text-align: center;
+    font-weight: 600;
 }
-
 .pagination-wrapper ul {
     display: inline-block;
     margin: 0;
     padding: 0;
 }
-
 .pagination-wrapper li {
     float: left;
 }
+.pagination{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+}
+.page-item.active .page-link {
+    z-index: 2;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: #00f078;
+    border-color: #141414;
+    background-image: url("../img/noise.png");
+}
+.page-link,
+.page-item.disabled .page-link{
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #00f078;
+    background-color: #141414;
+    border: 1px solid #00f078;
+    background-image: url("../img/noise.png");
+}
+.page-link:hover{
+    color: #141414;
+    background-color: #00f078;
+    border-color: #141414;
+}
+
 
 .post-body {
     background-color: #ddd;
@@ -520,3 +550,26 @@ td.topic-name {
     margin-right: 0;
 }
 
+/* Confirmation Popovers*/
+.popover-header{
+    color: rgba(255,255,255,0.5);
+    background-color: #141414;
+    border-bottom: 1px solid #00f078;
+}
+
+.popover-body{
+    color: rgba(255,255,255,0.5);
+    background-color: #141414;
+}
+
+.popover{
+    border-color: #00f078;
+    border-radius: 0;
+    background-color: #141414;
+}
+
+.popover.bs-popover-top .arrow::after, .popover.bs-popover-auto[x-placement^="top"] .arrow::after {
+    bottom: -10px;
+    margin-left: -6px;
+    border-top-color:#00f078;
+}

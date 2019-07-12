@@ -18,7 +18,6 @@ return [
     'password' => 'Password',
     'password_confirm' => 'Confirm Password',
     'register' => 'Register',
-    'not_logged_in' => 'Log in / Sign up',
     'logout' => 'Logout',
     'login' => 'Login',
 

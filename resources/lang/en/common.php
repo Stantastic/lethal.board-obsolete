@@ -10,16 +10,23 @@ return [
     'issues' => 'Issues',
     'views' => 'Views',
     'replies' => 'Replies',
+
+    'login_signup' => 'Login / Register',
+
     'by' => 'by',
     'on' => 'on',
+
     'ago' => 'ago',
     'moments_ago' => 'a few moments ago',
     'minute' => 'minute',
     'minutes' => 'minutes',
-    'delete' => 'Delete',
+
     'default' => 'Default',
     'type' => 'Type',
     'color' => 'Color',
+
+    'today' => 'Today',
+    'tomorrow' => 'Tomorrow',
 
     //COMMON
     'edit' => 'Edit',
@@ -27,6 +34,12 @@ return [
     'save' => 'Save',
     'save_changes' => 'Save Changes',
     'description' => 'Description',
+    'cancel' => 'Cancel',
+    'delete' => 'Delete',
+    'confirm' => 'Confirm',
+    'confirm_simple' => 'Are you sure?',
+    'yes' => 'Yes',
+    'no' => 'No',
 
     // BOARD
     'board_no_categories' => 'This board does not have categories yet.',
@@ -137,7 +150,19 @@ return [
     'post' => 'Post',
     'posts' => 'Posts',
     'post_latest' => 'Latest Reply',
+    'post_create' => 'Post Reply',
+    'post_create_new' => 'Post Reply',
+    'post_create_subtext' => 'Reply to a topic by creating a new Post.',
+    'post_created' => 'Post successfully created!',
+    'post_update' => 'Edit Post',
+    'post_update_new' => 'Update this Post',
+    'post_update_subtext' => 'Make changes to a previously posted reply.',
+    'post_updated' => 'Post was sucessfully updated!',
+    'post_delete' => 'Delete Post',
+    'post_deleted' => 'Post was successfully deleted!',
 
+    //USER PROFILE
+    'profile_subtext' => 'Your are currently viewing the user profile of %user%.', // %user% will be replaced by a users display_name
 
     //ACP
     'admin_control_panel' => 'ACP',
@@ -153,7 +178,7 @@ return [
     //NODES
     'nodes' => 'Nodes',
     'nodes_save_order' => 'Save Order',
-    'nodes_desc' => 'Drag & Drop categories, forums and links to set its display order and parent.',
+    'nodes_desc' => 'Drag & Drop categories, forums and links to set its display order and/or parent.',
 
 
 ];

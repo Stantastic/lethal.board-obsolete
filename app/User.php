@@ -3,16 +3,24 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+//use Watson\Rememberable\Rememberable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class User extends Authenticatable
 {
+    use Sluggable;
+    use SluggableScopeHelpers;
     use HasRoles;
     use Notifiable;
+    //use Rememberable;
 
+    //public $rememberCacheTag = 'display_name';
+    //public $rememberFor = 60;
     protected $guard_name = 'web';
 
     /**
@@ -50,7 +58,20 @@ class User extends Authenticatable
         return DB::table('users')->where('id', '>=', $id)->value('display_name');
     }
 
-    public static function getAvatar ($id){
-        return DB::table('users')->where('id', '>=', $id)->value('avatar');
+    public static function getTotalPosts($id){
+        return DB::table('posts')->where('author', '=', $id)->count();
+    }
+    public static function getTotalTopics($id){
+        return DB::table('topics')->where('author', '=', $id)->count();
+
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'display_name'
+            ]
+        ];
     }
 }

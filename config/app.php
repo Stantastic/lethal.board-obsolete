@@ -168,7 +168,6 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
-        Cviebrock\EloquentSluggable\Services\SlugService::class,
         /*
          * Application Service Providers...
          */

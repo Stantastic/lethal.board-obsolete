@@ -7,10 +7,10 @@
 
 @if (Auth::check())
 
-    @if(empty(Auth::user()->avatar) )
-        <img src="{{ Avatar::create( isset(Auth::user()->display_name) ? Auth::user()->display_name : Auth::user()->email )->toBase64() }}" width="40" height="40"/>
+    @if(empty(\App\Profile::get(Auth::user()->id)->avatar) )
+        <img src="{{ Avatar::create( Auth::user()->display_name)->toBase64() }}" width="40" height="40"/>
     @else
-        <img src="{{ Auth::user()->avatar }}" width="40" height="40" class="rounded"/>
+        <img src="{{ \App\Profile::get(Auth::user()->id)->avatar }}" width="40" height="40" class="rounded"/>
     @endif
 
     <ul class="navbar-nav">
@@ -32,7 +32,7 @@
     <ul class="navbar-nav">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                @lang('auth.not_logged_in')
+                <i class="fas fa-fw fa-sign-in-alt"></i> @lang('common.login_signup')
             </a>
             </a>
             <div class="dropdown-menu dropdown-menu-right mainnav-dropdown-menu direct-text" style="width: 250px; left: 40px!important;" aria-labelledby="navbarDropdown">

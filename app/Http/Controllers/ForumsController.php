@@ -27,7 +27,13 @@ class ForumsController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
+        if ($forum === null){
+            return abort(404);
+        }
+
         return view('base.forum')->with('forum', $forum)->with('topics', $topics);
+
+
     }
 
     /**
@@ -74,6 +80,10 @@ class ForumsController extends Controller
     public function edit($id)
     {
         $forum = Forum::find($id);
+
+        if ($forum === null){
+            return abort(404);
+        }
 
         if (!isset($forum)){
             return redirect('/acp/nodes')->with('error', trans('common.forum_not_found'));

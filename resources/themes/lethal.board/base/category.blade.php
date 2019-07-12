@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
 
-                                <a href="forum/{{$forum->id}}"
+                                <a href="/forum/{{$forum->id}}"
                                    class="forum-title readable">{{$forum->name}}</a><br>
                                 <small class="forum-desc">{{$forum->description}}</small>
                             </td>
@@ -69,8 +69,8 @@
                                     <a href="/topic/{{\App\Topic::getLatestInForum($forum->id)->id}}"
                                        class="lastsubject readable">{{\App\Topic::getLatestInForum($forum->id)->title}}</a>
                                     <br>
-                                    <small><i class="far fa-user"></i> <a href=""
-                                                                          class="username readable">{{\App\User::getDisplayName(\App\Topic::getLatestInForum($forum->id)->author)}}</a>
+                                    <small><i class="far fa-user"></i>
+                                        <a href="/user/{{\App\User::find(\App\Topic::getLatestInForum($forum->id)->author)->slug}}" class="username readable" style="color:{{\App\User::find(\App\Topic::getLatestInForum($forum->id)->author)->roles->first()->color}}; font-weight: 500;">{{\App\User::getDisplayName(\App\Topic::getLatestInForum($forum->id)->author)}}</a>
 
                                         <br>
 

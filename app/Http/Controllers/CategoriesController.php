@@ -22,6 +22,10 @@ class CategoriesController extends Controller
             ->orderBy('order', 'asc')
             ->paginate(10);
 
+        if ($category === null){
+            return abort(404);
+        }
+
         return view('base.category')->with('category', $category)->with('forums', $forums);
     }
 
@@ -67,6 +71,10 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
+
+        if ($category === null){
+            return abort(404);
+        }
 
         if (!isset($category)){
             return redirect('/acp/nodes')->with('error', trans('common.category_not_found'));

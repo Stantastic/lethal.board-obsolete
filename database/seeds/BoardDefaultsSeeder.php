@@ -7,6 +7,7 @@ use App\Category;
 use App\Topic;
 use App\User;
 use App\Post;
+use App\Profile;
 
 class BoardDefaultsSeeder extends Seeder
 {
@@ -27,6 +28,6 @@ class BoardDefaultsSeeder extends Seeder
         Post::create(['content' => 'Also check the other open source projects used in this forum!', 'topic' => '1', 'author' => '1']);
 
         User::create(['display_name' => 'admin', 'email' => 'admin@lethal.board', 'password' => Hash::make('password')])->assignRole('root');
-
+        Profile::create(['user_id' => 1 ]);
     }
 }

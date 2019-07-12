@@ -10,23 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Base View
 Route::get('/', 'PagesController@index');
 Route::get('/team', 'PagesController@team');
 Route::get('/members', 'PagesController@members');
 
-
-// Base View
 Route::resource('/category', 'CategoriesController', ['only' => ['show']]);
 Route::resource('/forum', 'ForumsController', ['only' => ['show']]);
 Route::resource('/topic', 'TopicsController', ['only' => ['show']]);
 
+//Profile
+Route::get('/user/edit/{user}', 'ProfilesController@edit');
+Route::resource('/user', 'ProfilesController', ['only' => ['show']]);
 
+// Post
+Route::get('/post/create/{topic}', 'PostsController@create')->middleware('permission:create-post');
+Route::get('/post/edit/{post}', 'PostsController@edit')->middleware('permission:create-post');
+Route::resource('/post', 'PostsController', ['only' => ['store', 'update']])->middleware('permission:create-post');
+
+// Topic
 Route::get('/topic/create/{forum}', 'TopicsController@create')->middleware('permission:create-topic');
 Route::get('/topic/edit/{topic}', 'TopicsController@edit')->middleware('permission:create-topic');
-Route::resource('/topic/edit', 'TopicsController@update')->middleware('permission:create-topic', 'permission:mod-topic-edit');
-Route::resource('/topic', 'TopicsController', ['only' => ['store', 'update']])->middleware('permission:create-topic');
+Route::resource('/topic', 'TopicsController', ['only' => ['store', 'update']])->middleware('permission:create-topic', 'permission:mod-topic-edit');
 
-// Requires Moderation Permissions
+// Topic & Post Moderation
+Route::resource('/post', 'PostsController', ['only' => ['destroy']])->middleware('permission:mod-post-delete');
 Route::resource('/topic', 'TopicsController', ['only' => ['destroy']])->middleware('permission:mod-topic-delete');
 Route::get('/topic/lock/{topic}', 'TopicsController@trigger_lock')->middleware('permission:mod-topic-lock');
 Route::get('/topic/stick/{topic}', 'TopicsController@trigger_stick')->middleware('permission:mod-topic-stick');
