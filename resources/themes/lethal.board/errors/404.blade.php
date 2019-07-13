@@ -14,6 +14,8 @@
 
             <h2>This page does not exist!</h2>
 
+            <a href="{{ URL::previous() }}" class="btn btn-success btn-block">BACK</a>
+
         </div>
     </div>
 

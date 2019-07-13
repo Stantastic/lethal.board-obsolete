@@ -14,6 +14,7 @@
 
             <h2>You don't have access to this page!</h2>
 
+            <a href="{{ URL::previous() }}" class="btn btn-success btn-block">BACK</a>
         </div>
 
     </div>

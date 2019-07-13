@@ -30,6 +30,8 @@ class CreateProfilesTable extends Migration
             $table->string('youtube')->nullable();
             $table->string('website')->nullable();
             $table->string('github')->nullable();
+            $table->string('reddit')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->integer('trophies')->default(0);
 
             $table->char('language', 5)->default('en');

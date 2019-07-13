@@ -15,9 +15,12 @@ return [
 
     'by' => 'by',
     'on' => 'on',
+    'left' => 'left',
 
     'ago' => 'ago',
     'moments_ago' => 'a few moments ago',
+    'day' => 'day',
+    'days' => 'days',
     'minute' => 'minute',
     'minutes' => 'minutes',
 
@@ -37,6 +40,8 @@ return [
     'cancel' => 'Cancel',
     'delete' => 'Delete',
     'confirm' => 'Confirm',
+    'upload' => 'Upload',
+    'upload_subtext' => 'Upload a new Profile Image.',
     'confirm_simple' => 'Are you sure?',
     'yes' => 'Yes',
     'no' => 'No',
@@ -163,6 +168,25 @@ return [
 
     //USER PROFILE
     'profile_subtext' => 'Your are currently viewing the user profile of %user%.', // %user% will be replaced by a users display_name
+    'profile_tt_joined' => 'Member since',
+    'profile_tt_last_seen' => 'Time last seen',
+    'profile_tt_topics' => 'Total topics started',
+    'profile_tt_posts' => 'Total replies written',
+    'profile_tt_trophies' => 'Total trophy points',
+    'profile_field_name' => 'Name',
+    'profile_field_role' => 'Role',
+    'profile_field_birthday' => 'Birthday',
+    'profile_field_location' => 'Location',
+    'profile_field_website' => 'Website',
+    'profile_signature' => 'Signature',
+    'profile_contact' => 'Contact',
+    'profile_about' => 'About',
+    'profile_biography' => 'Biography',
+    'profile_personal_info' => 'Personal Information',
+    'profile_edit' => 'Edit Profile',
+    'profile_edit_subtext' => 'Make changes to account settings and personal information.',
+    'profile_account_settings' => 'Account Settings',
+    'profile_avatar_image' => 'Profile Picture',
 
     //ACP
     'admin_control_panel' => 'ACP',

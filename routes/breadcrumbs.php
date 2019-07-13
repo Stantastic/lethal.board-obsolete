@@ -25,6 +25,13 @@ Breadcrumbs::for('/user', function ($trail, $user) {
     $trail->push($user->display_name,'ProfilesController@show');
 });
 
+// Index > USER PROFILE > EDIT
+Breadcrumbs::for('/user/edit', function ($trail, $user) {
+    $trail->parent('index');
+    $trail->push($user->display_name,'ProfilesController@show');
+    $trail->push(trans('common.profile_edit'),'ProfilesController@show');
+});
+
 // Index > CATEGORY > FORUM
 Breadcrumbs::for('/category', function ($trail, $category) {
     $trail->parent('index');
