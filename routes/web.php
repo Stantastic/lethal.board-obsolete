@@ -22,7 +22,9 @@ Route::resource('/topic', 'TopicsController', ['only' => ['show']]);
 
 //Profile
 Route::get('/user/edit/{user}', 'ProfilesController@edit');
-Route::resource('/user', 'ProfilesController', ['only' => ['show']]);
+Route::post('/user/edit/upload', 'ProfilesController@storeAvatar');
+Route::get('/user/edit/remove/{id}', 'ProfilesController@destroyAvatar');
+Route::resource('/user', 'ProfilesController', ['only' => ['show', 'update']]);
 
 // Post
 Route::get('/post/create/{topic}', 'PostsController@create')->middleware('permission:create-post');

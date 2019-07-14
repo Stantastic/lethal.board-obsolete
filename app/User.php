@@ -58,6 +58,10 @@ class User extends Authenticatable
         return DB::table('users')->where('id', '>=', $id)->value('display_name');
     }
 
+    public static function getSlug($id){
+        return DB::table('users')->where('id', '>=', $id)->value('slug');
+    }
+
     public static function getTotalPosts($id){
         return DB::table('posts')->where('author', '=', $id)->count();
     }

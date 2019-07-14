@@ -28,7 +28,7 @@ Breadcrumbs::for('/user', function ($trail, $user) {
 // Index > USER PROFILE > EDIT
 Breadcrumbs::for('/user/edit', function ($trail, $user) {
     $trail->parent('index');
-    $trail->push($user->display_name,'ProfilesController@show');
+    $trail->push($user->display_name,action('ProfilesController@show', $user->slug));
     $trail->push(trans('common.profile_edit'),'ProfilesController@show');
 });
 

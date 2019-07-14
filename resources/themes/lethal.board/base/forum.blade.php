@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-3 offset-9">
             <div class="card box-shadow box-dark box-outline p-1" style="margin-top: 0em; margin-bottom: 0em;">
-                <a href="/topic/create/{{$forum->id}}" class="btn btn-sm btn-success">@lang('common.topic_add_new')</a>
+                <a href="/topic/create/{{$forum->id}}" class="btn btn-sm btn-success"><i class="fas fa-fw fa-plus"></i> @lang('common.topic_add_new')</a>
             </div>
         </div>
     </div>

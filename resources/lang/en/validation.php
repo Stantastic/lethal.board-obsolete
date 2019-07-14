@@ -145,6 +145,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'display_name' => 'Username',
+        'title' => 'Title',
+        'post-body' => 'Message',
+        'url' => 'Destination URL',
+    ],
 
 ];

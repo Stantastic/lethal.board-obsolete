@@ -187,6 +187,9 @@ return [
     'profile_edit_subtext' => 'Make changes to account settings and personal information.',
     'profile_account_settings' => 'Account Settings',
     'profile_avatar_image' => 'Profile Picture',
+    'profile_avatar_upload_success' => 'Your new profile image was successfully uploaded',
+    'profile_avatar_remove_success' => 'Your profile image was successfully removed.',
+    'profile_updated' => 'Profile was successfully updated!',
 
     //ACP
     'admin_control_panel' => 'ACP',

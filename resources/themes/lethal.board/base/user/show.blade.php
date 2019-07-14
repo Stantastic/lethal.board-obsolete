@@ -10,10 +10,8 @@
 
 
 @section('content')
-
-
     @if(\Illuminate\Support\Facades\Auth::check())
-        @if(auth()->user()->can('mod_user_edit') || auth()->user()->id == $user->id)
+        @if(auth()->user()->can('mod-user-edit') || auth()->user()->id == $user->id)
         <div class="row">
             <div class="col-3 offset-9">
                 <div class="card box-shadow box-dark box-outline p-1" style="margin-top: 0em; margin-bottom: 0em;">
@@ -23,7 +21,6 @@
         </div>
         @endif
     @endif
-
     <div class="card box-shadow box-outline" style="margin-top: 0.75em; margin-bottom: 0.75em;">
 
         <div class="card-header">
@@ -31,8 +28,6 @@
             <small class="forum-desc">{{preg_replace('/%user%/', $user->display_name, trans('common.profile_subtext'))}}</small>
         </div>
     </div>
-
-
         <div class="row mt-3 row-eq-height">
             {{-- Avatar Image --}}
             <div class="col-3">
@@ -46,7 +41,6 @@
                     @endif
                 </div>
             </div>
-
             <div class="col-9 pl-1">
                 {{-- Statistics --}}
                 <div class="p-2 box-dark box-outline box-shadow text-center">
@@ -98,7 +92,6 @@
                                         <td class="item-name">@lang('common.profile_field_website')</td>
                                         <td class="item-data pl-4"><a href="http://{{$profile->website}}">{{$profile->website}}</a></td>
                                     </tr>
-
                                 </tbody>
                             </table>
                             </div>
@@ -116,7 +109,6 @@
                 </div>
             </div>
         </div>
-
     <div class="row mt-3 row-eq-height">
         {{-- Signature--}}
         <div class="col-9">
@@ -190,16 +182,12 @@
                     @endif
                     </tbody>
                 </table>
-
-
             </div>
         </div>
     </div>
-
-        <script>
-            $( document ).ready(function() {
-                $('[data-toggle="tooltip"]').tooltip()
-            });
-        </script>
-
+    <script>
+        $( document ).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
 @endsection

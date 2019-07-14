@@ -1,14 +1,13 @@
 ![lethal.board](GIT.png)
 --------
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1eae518a104b4864b70e494d146d9659)](https://app.codacy.com/app/Stantastic/lethal.board?utm_source=github.com&utm_medium=referral&utm_content=Stantastic/lethal.board&utm_campaign=Badge_Grade_Dashboard)![Discord](https://img.shields.io/discord/220393265420042240.svg?style=flat)
+![Discord](https://img.shields.io/discord/220393265420042240.svg?style=flat)
 ## About
 - ```this()``` is meant to replace lame, old-fashioned and also paid forum software found around the internet. 
 - ```this()``` is built by the community for the community.
 - ```this()``` uses some of the most awesome open-source projects you can find.
 - ```this()``` is free to use for anyone.
 
-## Features
+## Features(includes planned)
 - game-server status page/list
 - discord integration via webhooks
 - sleek & modern look
@@ -20,13 +19,17 @@
 - custom pages
 - private messaging & conversations
 - topic & post reactions
+- included minimalistic shop for 'server-perks'
+- donation options/statistics via paypal
 - much more is planned but baby-steps
 
 ## Tip of the Day
-Ignore all commit messages since they won't make sense right now :sweat_smile:
-
+-  Ignore all commit messages since they won't make sense right now :sweat_smile:
+-  Please note, this is my first Laravel project and I'm working with a limited amount of time. 
+-  Things might not be optimized, logic or perfect... sorry.
+-  There are probably a few ways to avoid authentication at the moment it is still in early stage and needs to be re-written already 
 ## Credits
-This project would not be possible without the work of all the other open-source authors:
+This project would not be possible without the work of all the other open-source authors :sweat_smile:
 
 - [Animate.css](http://daneden.github.io/animate.css/)
 - [Awesome Bootstrap Checkbox](https://github.com/flatlogic/awesome-bootstrap-checkbox)
@@ -41,8 +44,6 @@ This project would not be possible without the work of all the other open-source
 - [SweetAlert2](https://github.com/sweetalert2/sweetalert2)
 - [TWEmoji](https://twemoji.twitter.com)
 
-Please note, this is my first Laravel project and I'm going working with a limited amount of time. 
-Things might not be optimized, logic or perfect... sorry.
 
 ## License
 ```

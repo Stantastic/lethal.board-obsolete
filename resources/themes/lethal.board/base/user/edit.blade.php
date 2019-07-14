@@ -49,13 +49,13 @@
                         <img class="img-responsive rounded w-75 "
                              src="{{Avatar::create($user->display_name)->toBase64()}}"/>
                     @else
-                        <img class="img-responsive rounded w-75 box-outline"
+                        <img class="img-responsive rounded w-75"
                              src="{{$profile->avatar}}"/>
                     @endif
 
                         <div class="btn-group special mt-1 pl-4 pr-4" role="group">
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#uploadAvatar">Upload</button>
-                            <button type="button" class="btn btn-danger" data-toggle="confirmation">Remove</button>
+                            <button type="submit" form="delete-form-avatar" class="btn btn-danger" data-toggle="confirmation">Remove</button>
                         </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="card box-shadow box-outline" style="margin-top: 0.75em; margin-bottom: 0.75em;">
-
+        {{ Form::open(['action' => ['ProfilesController@update', $user->id], 'method' => 'POST', 'enctype' => 'multipart/form-data'])}}
         <div class="card-header">
             <i class="fas fa-fw fa-id-card-alt"></i><span class="text-success forum-title">@lang('common.profile_personal_info')</span>
         </div>
@@ -75,28 +75,28 @@
                     <div class="form-group row">
                         <label for="inputDiscord" class="col-sm-3 col-form-label">Discord</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputDiscord" placeholder="User#0001">
+                            <input type="text" class="form-control" id="inputDiscord" name="inputDiscord" value="{{$profile->discord}}" placeholder="User#0001">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="inputMinecraft" class="col-sm-3 col-form-label">Minecraft</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputMinecraft" placeholder="Nickname">
+                            <input type="text" class="form-control" id="inputMinecraft" name="inputMinecraft" value="{{$profile->minecraft}}" placeholder="Nickname">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="inputTwitter" class="col-sm-3 col-form-label">Twitter</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputTwitter" placeholder="@username">
+                            <input type="text" class="form-control" id="inputTwitter" name="inputTwitter" value="{{$profile->twitter}}" placeholder="@username">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="inputSteam" class="col-sm-3 col-form-label">Steam</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputSteam" placeholder="Username">
+                            <input type="text" class="form-control" id="inputSteam" name="inputSteam" value="{{$profile->steam}}" placeholder="Username">
                         </div>
                     </div>
 
@@ -106,28 +106,28 @@
                     <div class="form-group row">
                         <label for="inputYouTube" class="col-sm-3 col-form-label">YouTube</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputYouTube" placeholder="Channel">
+                            <input type="text" class="form-control" id="inputYouTube" name="inputYouTube" value="{{$profile->youtube}}" placeholder="Channel">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="inputGitHub" class="col-sm-3 col-form-label">GitHub</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputGitHub" placeholder="Username">
+                            <input type="text" class="form-control" id="inputGitHub" name="inputGitHub" value="{{$profile->github}}" placeholder="Username">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="inputReddit" class="col-sm-3 col-form-label">Reddit</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputReddit" placeholder="Username">
+                            <input type="text" class="form-control" id="inputReddit" name="inputReddit" value="{{$profile->reddit}}" placeholder="Username">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="inputWhatsApp" class="col-sm-3 col-form-label">WhatsApp</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputWhatsApp" placeholder="+12 345 678 9">
+                            <input type="text" class="form-control" id="inputWhatsApp" name="inputWhatsApp" value="{{$profile->whatsapp}}" placeholder="+12 345 678 9">
                         </div>
                     </div>
 
@@ -145,9 +145,11 @@
                 </div>
             </div>
 
-
+            <button type="submit" class="btn btn-success btn-block mt-3"><i class="fas fa-fw fa-save"></i> @lang('common.save_changes')</button>
 
         </div>
+        {{ Form::hidden('_method','PUT')}}
+        {{ Form::close()}}
     </div>
 
     <div class="modal fade" id="uploadAvatar" tabindex="-1" role="dialog" aria-hidden="true">
@@ -155,20 +157,26 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">@lang('common.upload_subtext')</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+
                 </div>
+                {{ Form::open(['action' => 'ProfilesController@storeAvatar', 'method' => 'POST', 'files' => true])}}
                 <div class="modal-body">
-                    ...
+                    {{Form::file('image')}}
+                    <input id="profile" name="profile" type="hidden" value="{{$user->id}}">
+                    <small class="inverse-text">max Size 1024kb, min Width 100px, max Width 512px, ratio 1:1, .png, .jpeg</small>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">@lang('common.cancel')</button>
-                    <button type="button" class="btn btn-success">@lang('common.upload')</button>
+                    <button type="submit" class="btn btn-success">@lang('common.upload')</button>
                 </div>
+                {{ Form::close()}}
             </div>
         </div>
     </div>
+
+    <form id="delete-form-avatar" action="{{ action('ProfilesController@destroyAvatar', $user->id)}}" method="GET">
+        @csrf
+    </form>
 
     <script>
         var json_loc = '{!! Theme::url('vendor/summernote/plugin/emoji/emoji-ajax.json') !!}';
@@ -206,7 +214,11 @@
                 btnCancelLabel: '@lang('common.no')',
             });
 
+            var content_signature = {!! json_encode($profile->signature) !!};
+            $("#signature").summernote("code", content_signature);
 
+            var content_about = {!! json_encode($profile->bio) !!};
+            $("#bio").summernote("code", content_about);
         });
     </script>
 

@@ -57,8 +57,10 @@
                         <div class="btn-group btn-group-fw" role="group">
                             @can('create-post')
                                 {{-- change to post!!--}}
+                            @if(!$topic->locked == 1)
                                 <a href="/post/create/{{$topic->id}}" class="btn btn-sm btn-success"><i class="fas fa-comment"></i> @lang('common.topic_reply_full')</a>
                             @endcan
+                            @endif
                             @if(Auth::user()->hasAnyPermission(['mod-topic-edit','topic-edit']))
                                 <a href="/topic/edit/{{$topic->id}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> @lang('common.edit')</a>
                             @endif
@@ -76,7 +78,7 @@
             <div class="col-2 box-dark box-outline-right  pb-4">
                 <div class="row mt-2">
                     <div class="col-10 offset-1 text-center">
-                        <a href="" style="color:{{\App\User::find($topic->author)->roles->first()->color}};">{{\App\User::getDisplayName($topic->author)}}</a>
+                        <a href="/user/{{\App\User::getSlug($topic->author)}}" style="color:{{\App\User::find($topic->author)->roles->first()->color}};">{{\App\User::getDisplayName($topic->author)}}</a>
                     </div>
                 </div>
                 <div class="row mt-0">
@@ -87,10 +89,10 @@
                 <div class="row mt-2 mb-2">
                     <div class="col-10 offset-1 text-center">
                         @if(empty($auhorProfile->avatar))
-                            <img class="img-responsive rounded w-75 "
+                            <img class="img-responsive w-75 "
                                  src="{{Avatar::create(\App\User::getDisplayName($topic->author))->toBase64()}}"/>
                         @else
-                            <img class="img-responsive rounded w-75 box-outline"
+                            <img class="img-responsive w-75"
                                  src="{{$auhorProfile->avatar}}"/>
                         @endif
                     </div>
@@ -132,24 +134,34 @@
     @foreach($posts as $post)
 
         @php
-            $postAuhorProfile = \App\Profile::get($topic->author)
+            $postAuhorProfile = \App\Profile::get($post->author)
         @endphp
         <div class="card box-shadow box-outline" style="margin-top: 0.75em; margin-bottom: 0.75em;">
             <div class="row ml-0 mr-0">
                 <div class="col-2 box-dark box-outline-right pb-4">
                     <div class="row mt-2">
                         <div class="col-10 offset-1 text-center">
-                            <a href="" style="color:{{\App\User::find($post->author)->roles->first()->color}};">{{\App\User::getDisplayName($post->author)}}</a>
+                            <div class="row mt-2">
+                                <div class="col-10 offset-1 text-center">
+                                    <a href="/user/{{\App\User::getSlug($post->author)}}" style="color:{{\App\User::find($post->author)->roles->first()->color}};">{{\App\User::getDisplayName($post->author)}}</a>
+                                </div>
+                            </div>
+                            <div class="row mt-0">
+                                <div class="col-10 offset-1 text-center">
+                                    <small>{{\App\User::find($post->author)->roles->first()->display_name}}</small>
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>
                     <div class="row mt-2 mb-2">
                         <div class="col-10 offset-1 text-center">
                             @if(empty($postAuhorProfile->avatar))
-                                <img class="img-responsive rounded w-75"
+                                <img class="img-responsive w-75"
                                      src="{{Avatar::create(\App\User::getDisplayName($post->author))->toBase64()}}"/>
                             @else
-                                <img class="img-responsive rounded w-75 box-outline"
+                                <img class="img-responsive w-75"
                                      src="{{$postAuhorProfile->avatar}}"/>
                             @endif
                         </div>
@@ -164,7 +176,7 @@
                         <span class="col-12 p-0 align-text-right">
                             <small class="box-dark box-outline-left box-outline-bottom p-1 direct-text" style="border-bottom-left-radius: 0.5em;">
                                 @if(\Illuminate\Support\Facades\Auth::check())
-                                    @if(auth()->user()->can('mod_post_edit') || auth()->user()->id == $post->author)
+                                    @if(auth()->user()->can('mod-post-edit') || auth()->user()->id == $post->author)
                                         <a href="/post/edit/{{$post->id}}"><i class="far fa-edit"></i> @lang('common.edit')</a>
                                     @endif
                                 @endif
