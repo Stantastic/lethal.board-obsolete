@@ -11,6 +11,7 @@
 - game-server status page/list
 - discord integration via webhooks
 - sleek & modern look
+- themes & localization
 - easy to customize and extend
 - permission & group management
 - seo friendly urls

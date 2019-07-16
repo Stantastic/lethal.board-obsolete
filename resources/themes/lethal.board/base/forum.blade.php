@@ -68,7 +68,7 @@
                             </div>
 
                             <a href="/topic/{{$topic->slug}}" class="forum-title readable-svg">@if($topic->sticky == '1')<i
-                                    class="fas fa-map-pin "></i>@endif @if($topic->locked == '1')<i
+                                    class="fas fa-thumbtack"></i>@endif @if($topic->locked == '1')<i
                                     class="fas fa-lock "></i> @endif{{$topic->title}}</a>
                             <br>
                             <small class="forum-desc ">@lang('common.by') <a href="/user/{{\App\User::find($topic->author)->slug}}" class="readable" style="color:{{\App\User::find($topic->author)->roles->first()->color}};" > {{\App\User::getDisplayName($topic->author)}}</a></small>

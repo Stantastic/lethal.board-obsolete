@@ -33,10 +33,10 @@
             <div class="col-3">
                 <div class="pt-4 pb-4 box-dark box-outline box-shadow text-center h-100">
                     @if(empty($profile->avatar))
-                        <span style="display: inline-block; height: 100%; vertical-align: middle;"></span><img class="img-responsive rounded w-75 "
+                        <span style="display: inline-block; height: 100%; vertical-align: middle;"></span><img class="img-responsive w-75 "
                              src="{{Avatar::create(\App\User::getDisplayName($user->display_name))->toBase64()}}"/>
                     @else
-                        <span style="display: inline-block; height: 100%; vertical-align: middle;"></span><img class="img-responsive rounded w-75 box-outline"
+                        <span style="display: inline-block; height: 100%; vertical-align: middle;"></span><img class="img-responsive w-75"
                              src="{{$profile->avatar}}"/>
                     @endif
                 </div>
@@ -64,12 +64,11 @@
                 </div>
                     <div class="row p-0 row-eq-height">
                         {{-- Personal Information--}}
-                        <div class="col-5">
-                            <div class="h-100">
+                        <div class="col-5 flex-wrapper">
                             <div class="p-2 mt-3 box-dark box-outline box-shadow text-center">
                                 <h4 class="text-success">@lang('common.profile_personal_info')</h4>
                             </div>
-                            <div class="card-body box-shadow box-outline-bottom box-outline-left box-outline-right inverse-text">
+                            <div class="flex-item card-body box-shadow box-outline-bottom box-outline-left box-outline-right inverse-text">
                             <table class="profile-table">
                                 <tbody>
                                     <tr>
@@ -96,13 +95,12 @@
                             </table>
                             </div>
                             </div>
-                        </div>
                         {{-- Bio--}}
-                        <div class="col-7">
+                        <div class="col-7 flex-wrapper">
                             <div class="p-2 mt-3 box-dark box-outline  box-shadow text-center">
                                 <h4 class="text-success">@lang('common.profile_about') {{$user->display_name}}</h4>
                             </div>
-                            <div class="card-body box-shadow box-outline-bottom box-outline-left box-outline-right inverse-text text-break pt-2 pb-2">
+                            <div class="flex-item card-body box-shadow box-outline-bottom box-outline-left box-outline-right inverse-text text-break pt-2 pb-2">
                                 {!!$profile->bio!!}
                             </div>
                         </div>
@@ -111,20 +109,20 @@
         </div>
     <div class="row mt-3 row-eq-height">
         {{-- Signature--}}
-        <div class="col-9">
+        <div class="col-9 flex-wrapper">
             <div class="p-2 box-dark box-outline  box-shadow text-center">
                 <h4 class="text-success">@lang('common.profile_signature')</h4>
             </div>
-            <div class="card-body box-shadow box-outline-bottom box-outline-left box-outline-right inverse-text text-break">
+            <div class="flex-item card-body box-shadow box-outline-bottom box-outline-left box-outline-right inverse-text text-break">
                 {!!$profile->signature!!}
             </div>
         </div>
         {{-- Contact Information--}}
-        <div class="col-3">
+        <div class="col-3 flex-wrapper">
             <div class="p-2 box-dark box-outline  box-shadow text-center">
                 <h4 class="text-success">@lang('common.profile_contact')</h4>
             </div>
-            <div class="card-body box-shadow box-outline-bottom box-outline-left box-outline-right inverse-text">
+            <div class="flex-item card-body box-shadow box-outline-bottom box-outline-left box-outline-right inverse-text">
 
                 <table class="contact-table">
                     <tbody>

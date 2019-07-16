@@ -34,9 +34,9 @@
                         @endcan
                         @can('mod-topic-stick')
                            @if($topic->sticky == 1)
-                               <a href="/topic/stick/{{$topic->id}}" class="btn btn-sm btn-primary"><i class="fas fa-map-pin"></i> @lang('common.topic_unstick')</a>
+                               <a href="/topic/stick/{{$topic->id}}" class="btn btn-sm btn-primary"><i class="fas fa-thumbtack"></i> @lang('common.topic_unstick')</a>
                             @else
-                                <a href="/topic/stick/{{$topic->id}}" class="btn btn-sm btn-primary"><i class="fas fa-map-pin"></i> @lang('common.topic_stick')</a>
+                                <a href="/topic/stick/{{$topic->id}}" class="btn btn-sm btn-primary"><i class="fas fa-thumbtack"></i> @lang('common.topic_stick')</a>
                             @endif
                         @endcan
                         @can('mod-topic-delete')
@@ -115,14 +115,17 @@
                 <div class="row">
                     <div class="col-12 inverse-text" style="">
                         {!! $topic->content !!}
+                    </div>
+
+                </div>
+                <div class="row bottom w-100">
+                    <div class="col-12 inverse-text p-3" style="">
                         @if($auhorProfile->signature)
                             <hr>
                             {!! \App\Profile::get($topic->author)->signature !!}
                         @endif
                     </div>
-
                 </div>
-
 
 
             </div>
@@ -184,18 +187,23 @@
                                     <a data-toggle="confirmation" href="javascript: document.getElementById('delete-form-post-{{$post->id}}').submit();" class="text-danger"><i class="fas fa-trash"></i> @lang('common.delete')</a>
                                 @endcan <i class="far fa-clock"></i> {{\App\Helpers\Helper::minsAgo($post->created_at)}}</small>
                         </span>
-                        <div class="col-12 pt-0 mb-0 inverse-text">
-                            {!! $post->content !!}
 
+
+                    </div>
+                    <div class="row pb-5">
+                        <div class="col-12 inverse-text" style="">
+                            {!! $post->content !!}
+                        </div>
+
+                    </div>
+                    <div class="row bottom w-100">
+                        <div class="col-12 inverse-text p-3" style="">
                             @if($postAuhorProfile->signature)
                                 <hr>
                                 {!! $postAuhorProfile->signature !!}
                             @endif
-
                         </div>
-
                     </div>
-
 
                 </div>
             </div>

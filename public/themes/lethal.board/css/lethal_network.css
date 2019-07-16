@@ -660,3 +660,16 @@ td.topic-name {
     background-color: transparent;
     border: 1px solid #00f078!important;
 }
+
+/* Flex Helpers */
+.flex-wrapper{
+    display: flex;
+    flex-flow: column;
+}
+.flex-item{
+    flex-grow: 1;
+}
+
+.fa-rotate-45 {
+    transform: rotate(45deg);
+}
