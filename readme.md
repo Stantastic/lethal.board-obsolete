@@ -1,3 +1,5 @@
+DO NOT USE IN PRODUCTION YET! DONT USE AT ALL TILL RELEASE!
+
 ![lethal.board](GIT.png)
 --------
 ![Discord](https://img.shields.io/discord/220393265420042240.svg?style=flat)
